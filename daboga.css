@@ -1,12 +1,19 @@
 
 /* =========================================================
-   DABOGA — ARTIST PROFILE
-   Estilos compartidos del nav y footer: style.css
+   DABOGA® — ARTIST PROFILE
+   Compatible con style.css y daboga.html
+   Escritorio · Tablet · Móvil
    ========================================================= */
 
 /* ---------------------------------------------------------
-   VIEWPORT — MISMAS DIMENSIONES QUE HOME, SIN SCROLL
+   1. BASE Y CONTROL DEL VIEWPORT
    --------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 html,
 body {
@@ -14,45 +21,62 @@ body {
   height: 100%;
   min-height: 0;
   margin: 0;
+  background: #090909;
+}
+
+body {
+  color: #efefee;
   overflow: hidden;
+  overscroll-behavior: none;
 }
 
 .site {
   position: relative;
+  display: flex;
+  flex-direction: column;
+
   width: 100%;
   height: 100vh;
   height: 100svh;
   min-height: 0;
+
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
   background: #090909;
 }
 
+/* El nav hereda directamente de style.css.
+   No redefinir .nav, .nav-links ni .nav-mark. */
+
+
 /* ---------------------------------------------------------
-   MAIN — ÁREA ENTRE EL NAV Y EL FOOTER
+   2. ÁREA PRINCIPAL
+   La navegación ocupa los primeros 58 px.
+   El footer queda reservado al final.
    --------------------------------------------------------- */
 
 .profile-main {
   position: relative;
-  flex: 1 1 auto;
+  isolation: isolate;
+
+  flex: 1 1 0;
   min-width: 0;
   min-height: 0;
   width: 100%;
-  overflow: hidden;
-  box-sizing: border-box;
 
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: minmax(0, 1fr);
   align-items: center;
 
-  padding: 42px 4vw 58px;
-  column-gap: clamp(20px, 4vw, 64px);
+  padding: 58px 4vw 0;
+  gap: clamp(20px, 3vw, 48px);
+
+  overflow: hidden;
 }
 
+
 /* ---------------------------------------------------------
-   ARTIST PROFILE — FOTO + BIO
+   3. FOTO + BIOGRAFÍA
    --------------------------------------------------------- */
 
 .artist-profile {
@@ -64,69 +88,85 @@ body {
   height: 100%;
   min-width: 0;
   min-height: 0;
-  margin: 0 auto;
-  padding: 0 0 0 5%;
 
-  box-sizing: border-box;
+  margin: 0 auto;
+  padding: 0 0 0 4%;
 
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
+
   align-items: center;
-  column-gap: clamp(24px, 4.5vw, 68px);
+  gap: clamp(24px, 4.5vw, 68px);
+
+  overflow: hidden;
 }
 
+
 /* ---------------------------------------------------------
-   PORTRAIT — UN POCO MÁS HACIA EL CENTRO
+   4. RETRATO
+   Blanco y negro como la imagen de HOME.
+   Tamaño limitado para que nunca domine toda la pantalla.
    --------------------------------------------------------- */
 
 .profile-photo-wrap {
   width: 100%;
   min-width: 0;
+  min-height: 0;
 
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
-  transform: translateX(4%);
+  overflow: hidden;
 }
 
 .profile-photo {
   display: block;
-  width: 100%;
-  max-width: 370px;
-  max-height: 58vh;
-  height: auto;
-  aspect-ratio: 3 / 4;
 
+  width: 100%;
+  height: auto;
+  max-width: 330px;
+  max-height: 48vh;
+
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
+
+  filter: grayscale(1) contrast(1.12);
+
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
+
 /* ---------------------------------------------------------
-   BIO — LETRA MÁS GRANDE
+   5. BIOGRAFÍA
    --------------------------------------------------------- */
 
 .artist-bio {
-  min-width: 0;
+  width: 100%;
   max-width: 470px;
+  min-width: 0;
+
   margin: 0;
 
   color: #efefee;
-
-  font-family:
-    "IBM Plex Mono",
-    monospace;
-
-  font-size: clamp(16px, 1.2vw, 18px);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(15px, 1.15vw, 18px);
   font-weight: 400;
-  line-height: 1.45;
+  line-height: 1.48;
   letter-spacing: -0.035em;
 
   overflow-wrap: break-word;
+  hyphens: auto;
 }
 
+
 /* ---------------------------------------------------------
-   SOCIALS — SOLO LOGOS, SIN LÍNEAS NI MARCOS
+   6. REDES SOCIALES
+   Solo logos, sin cajas ni líneas.
    --------------------------------------------------------- */
 
 .profile-socials {
@@ -140,12 +180,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 26px;
+  gap: 24px;
 
-  width: max-content;
-  max-width: 100%;
+  width: auto;
   min-width: 0;
-
   margin: 0;
   padding: 0;
 
@@ -160,8 +198,10 @@ body {
   align-items: center;
   justify-content: center;
 
+  flex: 0 0 auto;
   width: auto;
   height: auto;
+
   margin: 0;
   padding: 0;
 
@@ -169,7 +209,6 @@ body {
   outline: 0 !important;
   box-shadow: none !important;
   background: transparent !important;
-
   text-decoration: none;
   line-height: 0;
 }
@@ -184,8 +223,8 @@ body {
   display: block;
 
   width: auto;
-  height: 34px;
-  max-width: 130px;
+  height: 32px;
+  max-width: 120px;
 
   object-fit: contain;
 
@@ -195,80 +234,94 @@ body {
   background: transparent !important;
 }
 
+
 /* ---------------------------------------------------------
-   FOOTER — REPRODUCIR LA ALINEACIÓN DE HOME
-   Mantiene la clase .bottom-info de style.css.
-   No se redefine su tipografía, tamaño ni opacidad.
+   7. FOOTER
+   Conserva la clase compartida y su tipografía original.
    --------------------------------------------------------- */
 
 .site > .bottom-info {
-  flex: 0 0 auto;
+  position: relative;
+  z-index: 2;
 
+  flex: 0 0 auto;
   width: 100%;
   min-height: 58px;
-  padding: 0 4vw 18px;
 
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: end;
+  padding: 0 4vw 20px;
 
   box-sizing: border-box;
 }
 
-.site > .bottom-info span:nth-child(1) {
-  justify-self: start;
-}
+/* No redefinir la tipografía ni la cuadrícula de
+   .bottom-info: esas reglas proceden de style.css. */
 
-.site > .bottom-info span:nth-child(2) {
-  justify-self: center;
-}
 
-.site > .bottom-info span:nth-child(3) {
-  justify-self: end;
-}
+/* =========================================================
+   8. TABLET
+   ========================================================= */
 
-/* ---------------------------------------------------------
-   TABLET
-   --------------------------------------------------------- */
-
-@media (max-width: 900px) and (min-width: 701px) {
+@media (min-width: 701px) and (max-width: 1000px) {
   .profile-main {
-    padding-right: 5vw;
-    padding-left: 5vw;
-    column-gap: 24px;
+    padding-right: 4vw;
+    padding-left: 4vw;
+    gap: 22px;
   }
 
   .artist-profile {
-    padding-left: 3%;
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    column-gap: 26px;
+    padding-left: 1%;
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+    gap: 26px;
   }
 
   .profile-photo {
-    max-width: 320px;
-    max-height: 52vh;
+    max-width: 290px;
+    max-height: 43vh;
   }
 
   .artist-bio {
-    font-size: 15px;
-    line-height: 1.42;
+    font-size: clamp(14px, 1.55vw, 16px);
+    line-height: 1.45;
+  }
+
+  .profile-socials {
+    gap: 20px;
   }
 
   .profile-socials .social-link img {
-    height: 30px;
+    height: 28px;
+    max-width: 100px;
   }
 }
 
-/* ---------------------------------------------------------
-   MÓVIL
-   --------------------------------------------------------- */
+
+/* =========================================================
+   9. MÓVIL
+   La composición se adapta al ancho real.
+   No se permite scroll vertical u horizontal.
+   ========================================================= */
 
 @media (max-width: 700px) {
+  .site {
+    height: 100vh;
+    height: 100svh;
+    min-height: 0;
+  }
+
   .profile-main {
-    padding: 68px 5vw 24px;
+    flex: 1 1 0;
+    min-height: 0;
+
     grid-template-columns: minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) auto;
-    row-gap: 20px;
+
+    align-items: center;
+    justify-items: stretch;
+
+    gap: 0;
+    padding: 58px 6vw 0;
   }
 
   .artist-profile {
@@ -277,105 +330,169 @@ body {
 
     width: 100%;
     height: 100%;
-    padding: 0;
+    min-height: 0;
+    max-width: none;
 
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    column-gap: 16px;
+    padding: 0 0 8px;
+
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+
+    align-items: center;
+    gap: clamp(12px, 3vw, 22px);
+
+    overflow: hidden;
   }
 
   .profile-photo-wrap {
-    transform: translateX(2%);
+    justify-content: center;
+    overflow: hidden;
   }
 
   .profile-photo {
-    max-width: 100%;
-    max-height: 42vh;
+    width: 100%;
+    max-width: 240px;
+    max-height: 34vh;
+    aspect-ratio: 3 / 4;
+
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.12);
   }
 
   .artist-bio {
-    font-size: clamp(12px, 2.2vw, 14px);
+    max-width: none;
+    font-size: clamp(11px, 2.5vw, 14px);
     line-height: 1.4;
     letter-spacing: -0.04em;
+    overflow-wrap: anywhere;
+    hyphens: auto;
   }
 
   .profile-socials {
     grid-column: 1;
     grid-row: 2;
 
-    justify-self: center;
     align-self: center;
+    justify-self: center;
 
     flex-direction: row;
-    gap: 28px;
+    flex-wrap: nowrap;
+    gap: clamp(28px, 9vw, 48px);
+
+    width: 100%;
+    padding: 0 0 18px;
   }
 
   .profile-socials .social-link img {
-    height: 26px;
+    height: 25px;
     max-width: 100px;
   }
 
   .site > .bottom-info {
     min-height: 48px;
-    padding: 0 5vw 14px;
+    padding: 0 6vw 17px;
   }
 }
 
-/* ---------------------------------------------------------
-   MÓVILES ESTRECHOS
-   --------------------------------------------------------- */
 
-@media (max-width: 420px) {
+/* =========================================================
+   10. MÓVILES ESTRECHOS
+   ========================================================= */
+
+@media (max-width: 390px) {
   .profile-main {
-    padding: 66px 4vw 18px;
-    row-gap: 16px;
+    padding-right: 4vw;
+    padding-left: 4vw;
   }
 
   .artist-profile {
-    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-    column-gap: 10px;
-  }
+    grid-template-columns:
+      minmax(0, 0.82fr)
+      minmax(0, 1.18fr);
 
-  .profile-photo-wrap {
-    transform: translateX(1%);
+    gap: 10px;
+    padding-bottom: 4px;
   }
 
   .profile-photo {
-    max-height: 34vh;
+    max-width: 100%;
+    max-height: 30vh;
   }
 
   .artist-bio {
     font-size: 11px;
     line-height: 1.36;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
+  }
+
+  .profile-socials {
+    gap: 28px;
+    padding-bottom: 14px;
+  }
+
+  .profile-socials .social-link img {
+    height: 22px;
+    max-width: 86px;
+  }
+
+  .site > .bottom-info {
+    min-height: 44px;
+    padding: 0 4vw 15px;
+  }
+}
+
+
+/* =========================================================
+   11. MÓVIL EN HORIZONTAL / POCA ALTURA
+   ========================================================= */
+
+@media (max-width: 700px) and (max-height: 500px) {
+  .profile-main {
+    padding-top: 58px;
+  }
+
+  .artist-profile {
+    grid-template-columns:
+      minmax(0, 0.8fr)
+      minmax(0, 1.2fr);
+
+    gap: 18px;
+  }
+
+  .profile-photo {
+    max-height: 48vh;
+    max-width: 190px;
+  }
+
+  .artist-bio {
+    font-size: clamp(10px, 2.1vh, 13px);
+    line-height: 1.32;
   }
 
   .profile-socials {
     gap: 24px;
+    padding-bottom: 10px;
   }
 
   .profile-socials .social-link img {
-    height: 23px;
-    max-width: 90px;
+    height: 21px;
   }
 
   .site > .bottom-info {
-    min-height: 42px;
-    padding: 0 4vw 12px;
+    min-height: 40px;
+    padding-bottom: 12px;
   }
 }
 
-/* ---------------------------------------------------------
-   VENTANAS CON POCA ALTURA
-   --------------------------------------------------------- */
 
-@media (max-height: 650px) and (min-width: 701px) {
-  .profile-main {
-    padding-top: 34px;
-    padding-bottom: 28px;
-  }
+/* =========================================================
+   12. ESCRITORIO CON POCA ALTURA
+   ========================================================= */
 
+@media (min-width: 701px) and (max-height: 650px) {
   .profile-photo {
-    max-height: 46vh;
+    max-height: 42vh;
   }
 
   .artist-bio {
@@ -388,11 +505,6 @@ body {
   }
 
   .profile-socials .social-link img {
-    height: 27px;
-  }
-
-  .site > .bottom-info {
-    min-height: 42px;
-    padding-bottom: 14px;
+    height: 26px;
   }
 }
