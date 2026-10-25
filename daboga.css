@@ -1,0 +1,437 @@
+
+/* =========================================================
+   DABOGA PROFILE
+   Independent page stylesheet
+   No modifica el main de HOME ni style.css
+   ========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background: #090909;
+}
+
+body {
+  color: #efefee;
+  font-family:
+    "Arial Narrow",
+    "Archivo Narrow",
+    Arial,
+    sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+}
+
+
+/* =========================================================
+   PAGE / BACKGROUND
+   ========================================================= */
+
+.profile-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  min-height: 100svh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 46%,
+      rgba(255, 255, 255, .018),
+      transparent 68%
+    ),
+    #090909;
+}
+
+.profile-surface {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 24% 36%,
+      rgba(255, 255, 255, .014),
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 78% 65%,
+      rgba(255, 255, 255, .010),
+      transparent 44%
+    );
+}
+
+.profile-grain {
+  position: absolute;
+  z-index: -1;
+  inset: -20%;
+  pointer-events: none;
+  opacity: .025;
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.profile-nav {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  min-height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4vw;
+  border-bottom: 1px solid rgba(255, 255, 255, .09);
+}
+
+.profile-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.profile-nav a {
+  position: relative;
+  display: inline-block;
+  color: #efefee;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.035em;
+  opacity: .78;
+}
+
+.profile-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 1px;
+  background: #efefee;
+  transition: width .25s ease;
+}
+
+.profile-nav a:hover::after,
+.profile-nav a.active::after {
+  width: 100%;
+}
+
+.profile-nav a.active {
+  opacity: 1;
+}
+
+.profile-nav-mark {
+  font-size: 13px;
+  opacity: .8;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+   ========================================================= */
+
+.profile-main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: calc(100svh - 58px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 9vh 8vw 38px;
+}
+
+
+/* =========================================================
+   PROFILE: PHOTO LEFT / BIO RIGHT
+   ========================================================= */
+
+.artist-profile {
+  display: grid;
+  grid-template-columns:
+    minmax(0, .72fr)
+    minmax(0, 1.28fr);
+  align-items: center;
+  column-gap: clamp(28px, 6vw, 100px);
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.profile-photo-wrap {
+  width: 100%;
+  max-width: 340px;
+  justify-self: start;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 440px;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(1) contrast(1.04);
+}
+
+.artist-bio {
+  max-width: 650px;
+  color: #efefee;
+  font-size: clamp(16px, 1.35vw, 20px);
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: -.025em;
+}
+
+
+/* =========================================================
+   SOCIAL BANNER
+   ========================================================= */
+
+.profile-socials {
+  width: 100%;
+  max-width: 1180px;
+  margin: clamp(48px, 8vh, 90px) auto 0;
+  padding: 22px 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(28px, 5vw, 64px);
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  opacity: .78;
+  transition: opacity .2s ease;
+}
+
+.social-link:hover {
+  opacity: 1;
+}
+
+.social-link img {
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: 180px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.profile-footer {
+  width: 100%;
+  max-width: 1180px;
+  margin: auto auto 0;
+  padding-top: 34px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 12px;
+  color: #efefee;
+  font-size: 11px;
+  line-height: 1;
+  letter-spacing: -.025em;
+  opacity: .65;
+}
+
+.profile-footer span:nth-child(1) {
+  justify-self: start;
+}
+
+.profile-footer span:nth-child(2) {
+  justify-self: center;
+}
+
+.profile-footer span:nth-child(3) {
+  justify-self: end;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .profile-nav {
+    padding: 0 5vw;
+  }
+
+  .profile-nav-links {
+    gap: 22px;
+  }
+
+  .profile-main {
+    padding: 8vh 6vw 32px;
+  }
+
+  .artist-profile {
+    grid-template-columns:
+      minmax(0, .78fr)
+      minmax(0, 1.22fr);
+    column-gap: 5vw;
+  }
+
+  .profile-photo-wrap {
+    max-width: 280px;
+  }
+
+  .artist-bio {
+    font-size: clamp(15px, 1.8vw, 18px);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   Same visual language, scaled to the viewport
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .profile-nav {
+    min-height: 54px;
+    padding: 0 16px;
+  }
+
+  .profile-nav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .profile-nav a {
+    font-size: clamp(9px, 2.5vw, 11px);
+  }
+
+  .profile-nav-mark {
+    display: none;
+  }
+
+  .profile-main {
+    min-height: calc(100svh - 54px);
+    justify-content: flex-start;
+    padding: 12vh 6vw 26px;
+  }
+
+  .artist-profile {
+    grid-template-columns:
+      minmax(0, .72fr)
+      minmax(0, 1.28fr);
+    align-items: start;
+    column-gap: 5vw;
+  }
+
+  .profile-photo-wrap {
+    width: 100%;
+    max-width: none;
+  }
+
+  .profile-photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  .artist-bio {
+    max-width: none;
+    font-size: clamp(12px, 3.15vw, 16px);
+    line-height: 1.55;
+    letter-spacing: -.025em;
+    overflow-wrap: break-word;
+  }
+
+  .profile-socials {
+    margin-top: 8vh;
+    padding: 17px 0;
+    gap: 30px;
+  }
+
+  .social-link {
+    height: 32px;
+  }
+
+  .social-link img {
+    max-width: 140px;
+  }
+
+  .profile-footer {
+    padding-top: 28px;
+    font-size: 9px;
+    gap: 8px;
+  }
+}
+
+
+/* =========================================================
+   VERY NARROW MOBILE
+   Keep the photo and text side by side
+   ========================================================= */
+
+@media (max-width: 360px) {
+  .profile-nav {
+    padding: 0 11px;
+  }
+
+  .profile-nav-links {
+    gap: 5px;
+  }
+
+  .profile-nav a {
+    font-size: 9px;
+  }
+
+  .profile-main {
+    padding-right: 5vw;
+    padding-left: 5vw;
+  }
+
+  .artist-profile {
+    grid-template-columns:
+      minmax(0, .65fr)
+      minmax(0, 1.35fr);
+    column-gap: 4vw;
+  }
+
+  .artist-bio {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .profile-socials {
+    gap: 22px;
+  }
+
+  .social-link {
+    height: 28px;
+  }
+
+  .profile-footer {
+    font-size: 8px;
+  }
+}
