@@ -1,221 +1,217 @@
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&display=swap');
+/* ================================
+   DABOGA — PROFILE
+   Los estilos compartidos del nav
+   y footer vienen de style.css
+================================ */
 
-/* =================================
-   PROFILE CONTENT
-   Header, wrapper y footer:
-   heredados de style.css
-================================= */
-
-.profile-main {
-  display: flex;
-  flex: 1 0 auto;
-  flex-direction: column;
-  justify-content: center;
+/* Mantener la página al tamaño de la ventana */
+html,
+body {
   width: 100%;
-  min-width: 0;
-  padding: clamp(48px, 8vh, 90px) 0 42px;
-}
-
-/* =================================
-   PORTRAIT + BIO
-================================= */
-
-.artist-profile {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  align-items: center;
-  column-gap: clamp(36px, 7vw, 100px);
-  width: 100%;
-  min-width: 0;
-}
-
-.profile-photo-wrap {
-  width: 100%;
-  max-width: 360px;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
   overflow: hidden;
-  background: #111;
 }
 
-.profile-photo {
+.site {
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Área principal del perfil */
+.profile-main {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Foto y bio */
+.profile-content {
+  width: 100%;
+  max-width: 1100px;
+  height: 100%;
+  min-height: 0;
+  margin: 0 auto;
+  padding: 0 7%;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  align-items: center;
+  column-gap: clamp(32px, 6vw, 100px);
+}
+
+/* Retrato: desplazado hacia el centro */
+.profile-image-wrap {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 0;
+}
+
+.profile-image {
   display: block;
   width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
+  max-width: 360px;
+  max-height: 58vh;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center;
-  filter: grayscale(100%) contrast(1.08) brightness(0.9);
 }
 
-/* =================================
-   DIGITAL BIO
-================================= */
-
-.artist-bio {
-  width: 100%;
-  max-width: 390px;
-  color: #d6d6d2;
-  font-family: "IBM Plex Mono", "Courier New", monospace;
-  font-size: clamp(11px, 1vw, 13px);
+/* Biografía */
+.profile-bio {
+  min-width: 0;
+  max-width: 440px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: clamp(14px, 1.1vw, 16px);
   font-weight: 400;
-  line-height: 1.38;
-  letter-spacing: -0.055em;
+  line-height: 1.45;
+  letter-spacing: -0.035em;
   overflow-wrap: break-word;
-  text-wrap: pretty;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* =================================
-   SOCIAL LOGOS
-   Sin cajas, líneas ni separadores
-================================= */
+.profile-bio p {
+  margin: 0;
+}
 
+/* Enlaces sociales: solo los logos, sin líneas ni marcos */
 .profile-socials {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: clamp(28px, 5vw, 68px);
-  width: 100%;
-  margin-top: clamp(48px, 8vh, 84px);
+  flex-wrap: nowrap;
+  gap: clamp(24px, 3vw, 42px);
+  margin-top: 30px;
   padding: 0;
   border: 0;
 }
 
-.social-link {
+.profile-socials a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 0;
+  flex: 0 0 auto;
   padding: 0;
+  margin: 0;
   border: 0;
+  outline: 0;
+  box-shadow: none;
   background: transparent;
   text-decoration: none;
-  transition: opacity 180ms ease;
+  line-height: 0;
 }
 
-.social-link:hover {
-  background: transparent;
-  opacity: 0.7;
+.profile-socials a::before,
+.profile-socials a::after {
+  content: none;
+  display: none;
+  border: 0;
 }
 
-.social-link img {
+.profile-socials img {
   display: block;
   width: auto;
+  height: 34px;
   max-width: 150px;
-  height: 36px;
   object-fit: contain;
-  filter: grayscale(100%);
-  opacity: 0.92;
+  border: 0;
+  outline: 0;
+  box-shadow: none;
+  background: transparent;
 }
 
-.social-link:first-child img {
-  max-width: 150px;
-}
-
-.social-link:last-child img {
-  max-width: 150px;
-}
-
-/* =================================
-   TABLET
-================================= */
-
-@media (max-width: 800px) {
+/* Portada en pantallas pequeñas: sigue sin scroll */
+@media (max-width: 700px) {
   .profile-main {
-    padding-top: 8vh;
-    padding-bottom: 36px;
+    align-items: center;
   }
 
-  .artist-profile {
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    column-gap: 5vw;
+  .profile-content {
+    padding: 0 6%;
+    grid-template-columns: 0.9fr 1.1fr;
+    column-gap: 20px;
   }
 
-  .artist-bio {
-    max-width: 340px;
+  .profile-image {
+    max-height: 42vh;
+    max-width: 100%;
+  }
+
+  .profile-bio {
+    font-size: clamp(11px, 2.5vw, 13px);
+    line-height: 1.4;
+    letter-spacing: -0.04em;
+  }
+
+  .profile-socials {
+    gap: 18px;
+    margin-top: 20px;
+  }
+
+  .profile-socials img {
+    height: 27px;
+    max-width: 112px;
+  }
+}
+
+/* Móviles estrechos: mantener todo dentro de la portada */
+@media (max-width: 420px) {
+  .profile-content {
+    padding: 0 5%;
+    column-gap: 14px;
+  }
+
+  .profile-image {
+    max-height: 36vh;
+  }
+
+  .profile-bio {
     font-size: 11px;
-    line-height: 1.38;
+    line-height: 1.35;
   }
 
   .profile-socials {
-    margin-top: 7vh;
-    gap: 32px;
+    gap: 12px;
+    margin-top: 16px;
   }
 
-  .social-link img {
-    height: 32px;
+  .profile-socials img {
+    height: 23px;
+    max-width: 90px;
   }
 }
 
-/* =================================
-   MOBILE
-================================= */
-
-@media (max-width: 600px) {
-  .profile-main {
-    justify-content: flex-start;
-    padding-top: clamp(48px, 9vh, 76px);
-    padding-bottom: 36px;
+/* Pantallas con poca altura */
+@media (max-height: 650px) {
+  .profile-image {
+    max-height: 48vh;
   }
 
-  .artist-profile {
-    grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
-    align-items: start;
-    column-gap: 15px;
-  }
-
-  .profile-photo-wrap {
-    max-width: none;
-  }
-
-  .profile-photo {
-    aspect-ratio: 4 / 5;
-  }
-
-  .artist-bio {
-    max-width: none;
-    font-size: clamp(10px, 2.65vw, 12px);
-    line-height: 1.38;
-    letter-spacing: -0.055em;
-    overflow-wrap: anywhere;
+  .profile-bio {
+    font-size: clamp(12px, 1vw, 14px);
+    line-height: 1.35;
   }
 
   .profile-socials {
-    justify-content: flex-start;
-    gap: 28px;
-    margin-top: 8vh;
+    margin-top: 18px;
   }
 
-  .social-link img {
-    height: 29px;
-  }
-
-  .social-link:first-child img,
-  .social-link:last-child img {
-    max-width: 125px;
-  }
-}
-
-/* =================================
-   SMALL MOBILE
-================================= */
-
-@media (max-width: 360px) {
-  .artist-profile {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-    column-gap: 11px;
-  }
-
-  .artist-bio {
-    font-size: 9px;
-    line-height: 1.38;
-  }
-
-  .profile-socials {
-    gap: 22px;
-  }
-
-  .social-link img {
-    height: 25px;
+  .profile-socials img {
+    height: 27px;
   }
 }
