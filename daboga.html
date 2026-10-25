@@ -1,130 +1,75 @@
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090909">
+  <title>DABOGA®</title>
 
-  <title>DABOGA® — Artist Profile</title>
+  <!-- Estilos compartidos con HOME -->
+  <link rel="stylesheet" href="style.css">
 
+  <!-- Estilos exclusivos del perfil -->
   <link rel="stylesheet" href="daboga.css">
 </head>
-
 <body>
+  <div class="site">
 
-  <div class="profile-page">
-
-    <div class="profile-surface" aria-hidden="true"></div>
-
-    <div class="profile-grain" aria-hidden="true"></div>
-
-    <nav
-      class="profile-nav"
-      aria-label="Navegación principal"
-    >
-
-      <div class="profile-nav-links">
-
+    <nav class="nav" aria-label="Navegación principal">
+      <div class="nav-links">
         <a href="index.html">HOME</a>
-
         <a href="#">MUSIC</a>
-
         <a href="#">ARCHIVE</a>
-
         <a href="#">BEATMAKING</a>
-
-        <a
-          href="daboga.html"
-          class="active"
-          aria-current="page"
-        >DABOGA</a>
-
+        <a href="daboga.html" class="active" aria-current="page">DABOGA</a>
       </div>
-
-      <span class="profile-nav-mark" aria-hidden="true">®</span>
-
+      <div class="nav-mark" aria-hidden="true">®</div>
     </nav>
-    
-    <footer class="profile-footer">
-      <span>DBG® 2026</span>
-      <span>MAD / GZ</span>
-      <span>PROD / ARTIST</span>
-      </footer>
-    
-    <main class="profile-main">
 
-      <section
-        class="artist-profile"
-        aria-label="Información del artista"
-      >
+    <main class="profile-main">
+      <section class="artist-profile" aria-label="Información del artista">
 
         <div class="profile-photo-wrap">
-
           <img
             class="profile-photo"
             src="images/DABOGA_PROFILEPIC.jpeg"
             alt="Retrato de DaBoga"
           >
-
         </div>
 
         <p class="artist-bio">DaBoga es un artista y productor madrileño con raíces gallegas en activo desde principios de 2023. Temas como el amor, la nostalgia o la moda se han ido transformando a lo largo de proyectos casi autobiográficos en los que el digicore, el rage y el cloudrap se solapan para dar cabida a un espacio sonoro que hoy es su identidad.</p>
 
       </section>
 
-      <section
-        class="profile-socials"
-        aria-label="Redes y música"
-      >
+      <section class="profile-socials" aria-label="Música y redes">
 
         <a
-          class="social-link spotify-link"
+          class="social-link"
           href="https://open.spotify.com/intl-es/artist/4sbotutl9AMCFZ6qiC0CzH?si=Byosd8zjRayhvWLXfHbSRw"
           aria-label="Escuchar DaBoga en Spotify"
         >
-
-          <img
-            src="images/SPOTIFY_LOGO.jpg"
-            alt="Spotify"
-          >
-
+          <img src="images/SPOTIFY_LOGO.jpg" alt="Spotify">
         </a>
 
         <a
-          class="social-link instagram-link"
+          class="social-link"
           href="https://www.instagram.com/burberryangel_/"
           aria-label="Seguir a DaBoga en Instagram"
         >
-
-          <img
-            src="images/INSTAGRAM_LOGO.jpg"
-            alt="Instagram"
-          >
-
+          <img src="images/INSTAGRAM_LOGO.jpg" alt="Instagram">
         </a>
 
       </section>
-
-      <footer class="profile-footer">
-
-        <span>DBG® 2026</span>
-
-        <span>MAD / GZ</span>
-
-        <span>PROD / ARTIST</span>
-
-      </footer>
-
     </main>
 
-  </div>
+    <!-- El mismo footer que HOME: una sola vez y al fondo -->
+    <footer class="bottom-info" aria-label="Información">
+      <span>DBG® 2026</span>
+      <span>MAD / GZ</span>
+      <span>PROD / ARTIST</span>
+    </footer>
 
+  </div>
 </body>
 </html>
