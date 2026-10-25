@@ -507,4 +507,97 @@ body {
   .profile-socials .social-link img {
     height: 26px;
   }
+   
+/* =========================================================
+   AJUSTE FINAL — DABOGA
+   Foto más a la izquierda y un poco más pequeña.
+   Logos debajo de la biografía.
+   ========================================================= */
+
+@media (min-width: 701px) {
+  .profile-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .artist-profile {
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
+    padding-left: 0;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(24px, 4vw, 56px);
+  }
+
+  .profile-photo-wrap {
+    justify-content: flex-start;
+    padding-left: 2vw;
+  }
+
+  .profile-photo {
+    width: 100%;
+    max-width: 290px;
+    max-height: 44vh;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.12);
+  }
+
+  .profile-socials {
+    position: absolute;
+    left: calc(4vw + (92vw * 0.425) + 24px);
+    bottom: 18%;
+    transform: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 28px;
+  }
+}
+
+/* En móvil: mantener foto y bio en columnas,
+   y dejar los logos debajo de la biografía. */
+
+@media (max-width: 700px) {
+  .profile-main {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .artist-profile {
+    grid-column: 1;
+    grid-row: 1;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 12px;
+    padding-left: 0;
+  }
+
+  .profile-photo-wrap {
+    justify-content: flex-start;
+  }
+
+  .profile-photo {
+    width: 100%;
+    max-width: 210px;
+    max-height: 32vh;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.12);
+  }
+
+  .artist-bio {
+    font-size: clamp(11px, 2.5vw, 14px);
+  }
+
+  .profile-socials {
+    position: static;
+    grid-column: 1;
+    grid-row: 2;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    align-self: center;
+    gap: 30px;
+    width: 100%;
+    padding: 0 0 14px;
+  }
 }
