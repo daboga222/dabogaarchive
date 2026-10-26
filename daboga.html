@@ -1,20 +1,23 @@
-
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090909">
+
   <title>DABOGA®</title>
 
-  <!-- Estilos compartidos con HOME -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Estilos exclusivos del perfil -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="daboga.css">
 </head>
+
 <body>
-  <div class="site">
+  <div class="site profile-site">
 
     <nav class="nav" aria-label="Navegación principal">
       <div class="nav-links">
@@ -28,42 +31,45 @@
     </nav>
 
     <main class="profile-main">
-      <section class="artist-profile" aria-label="Información del artista">
+      <section class="artist-profile" aria-label="Perfil de DaBoga">
 
         <div class="profile-photo-wrap">
           <img
             class="profile-photo"
             src="images/DABOGA_PROFILEPIC.jpeg"
-            alt="Retrato de DaBoga"
+            alt="Retrato de DaBoga en blanco y negro"
           >
         </div>
 
-        <p class="artist-bio">DaBoga es un artista y productor madrileño con raíces gallegas en activo desde principios de 2023. Temas como el amor, la nostalgia o la moda se han ido transformando a lo largo de proyectos casi autobiográficos en los que el digicore, el rage y el cloudrap se solapan para dar cabida a un espacio sonoro que hoy es su identidad.</p>
+        <div class="profile-copy">
+          <p class="artist-bio">DaBoga es un artista y productor madrileño con raíces gallegas en activo desde principios de 2023. Temas como el amor, la nostalgia o la moda se han ido transformando a lo largo de proyectos casi autobiográficos en los que el digicore, el rage y el cloudrap se solapan para dar cabida a un espacio sonoro que hoy es su identidad.</p>
 
-      </section>
+          <section class="profile-socials" aria-label="Música y redes">
+            <a
+              class="social-link"
+              href="https://open.spotify.com/intl-es/artist/4sbotutl9AMCFZ6qiC0CzH?si=Byosd8zjRayhvWLXfHbSRw"
+              aria-label="Escuchar DaBoga en Spotify"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="images/SPOTIFY_LOGO.jpg" alt="Spotify">
+            </a>
 
-      <section class="profile-socials" aria-label="Música y redes">
-
-        <a
-          class="social-link"
-          href="https://open.spotify.com/intl-es/artist/4sbotutl9AMCFZ6qiC0CzH?si=Byosd8zjRayhvWLXfHbSRw"
-          aria-label="Escuchar DaBoga en Spotify"
-        >
-          <img src="images/SPOTIFY_LOGO.jpg" alt="Spotify">
-        </a>
-
-        <a
-          class="social-link"
-          href="https://www.instagram.com/burberryangel_/"
-          aria-label="Seguir a DaBoga en Instagram"
-        >
-          <img src="images/INSTAGRAM_LOGO.jpg" alt="Instagram">
-        </a>
+            <a
+              class="social-link"
+              href="https://www.instagram.com/burberryangel_/"
+              aria-label="Seguir a DaBoga en Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="images/INSTAGRAM_LOGO.jpg" alt="Instagram">
+            </a>
+          </section>
+        </div>
 
       </section>
     </main>
 
-    <!-- El mismo footer que HOME: una sola vez y al fondo -->
     <footer class="bottom-info" aria-label="Información">
       <span>DBG® 2026</span>
       <span>MAD / GZ</span>
