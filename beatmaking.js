@@ -1,3 +1,4 @@
+
 /* =========================================================
    DABOGA® — BEATMAKING
    Interface interactions
@@ -5,27 +6,155 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+  const loadingScreen = document.getElementById("loadingScreen");
+  const navigationKey = "dabogaNavigationStart";
+  const minimumLoadingTime = 2000;
+  const noFlashThreshold = 1500;
+
+  let navigationStart = null;
+
+  try {
+    const storedTime = sessionStorage.getItem(navigationKey);
+
+    if (storedTime) {
+      navigationStart = Number(storedTime);
+      sessionStorage.removeItem(navigationKey);
+    }
+  } catch (error) {
+    navigationStart = null;
+  }
+
+  const isInternalNavigation =
+    Number.isFinite(navigationStart) &&
+    navigationStart > 0;
+
+  const elapsedAtStart = isInternalNavigation
+    ? Math.max(0, Date.now() - navigationStart)
+    : 0;
+
+  const shouldShowLoader =
+    !isInternalNavigation ||
+    elapsedAtStart >= noFlashThreshold;
+
+  function hideLoadingScreen() {
+    if (!loadingScreen) return;
+
+    if (!shouldShowLoader) {
+      loadingScreen.classList.add("is-hidden");
+      loadingScreen.remove();
+      return;
+    }
+
+    const elapsed = isInternalNavigation
+      ? Date.now() - navigationStart
+      : Date.now() - pageStart;
+
+    const remaining = Math.max(
+      0,
+      minimumLoadingTime - elapsed
+    );
+
+    window.setTimeout(() => {
+      loadingScreen.classList.add("is-hidden");
+
+      window.setTimeout(() => {
+        loadingScreen.remove();
+      }, 400);
+
+    }, remaining);
+  }
+
+  const pageStart = Date.now();
+
+  if (loadingScreen && !shouldShowLoader) {
+    loadingScreen.classList.add("is-hidden");
+    loadingScreen.remove();
+  }
+
+  if (document.readyState === "complete") {
+    hideLoadingScreen();
+  } else {
+    window.addEventListener("load", hideLoadingScreen, {
+      once: true
+    });
+  }
+
+  /* =======================================================
+     INTERNAL NAVIGATION TIMESTAMP
+     ======================================================= */
+
+  document.querySelectorAll(
+    'a[href="index.html"], a[href="daboga.html"], a[href="beatmaking.html"]'
+  ).forEach(link => {
+
+    link.addEventListener("click", event => {
+
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      ) {
+        return;
+      }
+
+      try {
+        sessionStorage.setItem(
+          navigationKey,
+          String(Date.now())
+        );
+      } catch (error) {
+        // Navigation continues normally if storage is unavailable.
+      }
+
+    });
+
+  });
+
+  document.querySelectorAll(".nav-unavailable").forEach(link => {
+    link.addEventListener("click", event => {
+      event.preventDefault();
+    });
+  });
+
   /* =======================================================
      CATEGORY NAVIGATION
      ======================================================= */
 
-  const categoryButtons = document.querySelectorAll(".category-button");
-  const categoryPanels = document.querySelectorAll(".category-panel");
+  const categoryButtons = document.querySelectorAll(
+    ".category-button"
+  );
+
+  const categoryPanels = document.querySelectorAll(
+    ".category-panel"
+  );
 
   function activateCategory(category) {
 
     categoryButtons.forEach(button => {
-      const isActive = button.dataset.category === category;
+
+      const isActive =
+        button.dataset.category === category;
 
       button.classList.toggle("active", isActive);
-      button.setAttribute("aria-pressed", String(isActive));
+
+      button.setAttribute(
+        "aria-pressed",
+        String(isActive)
+      );
+
     });
 
     categoryPanels.forEach(panel => {
+
       panel.classList.toggle(
         "active",
         panel.id === `panel-${category}`
       );
+
     });
 
     stopAllPlayers();
@@ -49,7 +178,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-
   /* =======================================================
      PLAYER INTERFACE
      No audio files connected in this prototype.
@@ -63,8 +191,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     playerItems.forEach(item => {
 
-      const playButton = item.querySelector('[data-action="play"]');
-      const duration = item.querySelector(".track-duration");
+      const playButton = item.querySelector(
+        '[data-action="play"]'
+      );
+
+      const duration = item.querySelector(
+        ".track-duration"
+      );
 
       if (!playButton) return;
 
@@ -73,7 +206,7 @@ document.addEventListener("DOMContentLoaded", () => {
       playButton.setAttribute("aria-label", "Play");
       playButton.setAttribute("aria-pressed", "false");
 
-      if (duration && duration.textContent === "DEMO") {
+      if (duration) {
         duration.textContent = "--:--";
       }
 
@@ -83,18 +216,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   playerItems.forEach(item => {
 
-    const playButton = item.querySelector('[data-action="play"]');
-    const previousButton = item.querySelector('[data-action="previous"]');
-    const nextButton = item.querySelector('[data-action="next"]');
-    const duration = item.querySelector(".track-duration");
+    const playButton = item.querySelector(
+      '[data-action="play"]'
+    );
+
+    const previousButton = item.querySelector(
+      '[data-action="previous"]'
+    );
+
+    const nextButton = item.querySelector(
+      '[data-action="next"]'
+    );
+
+    const duration = item.querySelector(
+      ".track-duration"
+    );
 
     if (playButton) {
 
-      playButton.setAttribute("aria-pressed", "false");
+      playButton.setAttribute(
+        "aria-pressed",
+        "false"
+      );
 
       playButton.addEventListener("click", () => {
 
-        const isPlaying = playButton.classList.contains("is-playing");
+        const isPlaying =
+          playButton.classList.contains("is-playing");
 
         stopAllPlayers();
 
@@ -102,8 +250,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
           playButton.classList.add("is-playing");
           playButton.textContent = "Ⅱ";
-          playButton.setAttribute("aria-label", "Pause");
-          playButton.setAttribute("aria-pressed", "true");
+
+          playButton.setAttribute(
+            "aria-label",
+            "Pause"
+          );
+
+          playButton.setAttribute(
+            "aria-pressed",
+            "true"
+          );
 
           if (duration) {
             duration.textContent = "DEMO";
@@ -151,19 +307,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-
   /* =======================================================
      INFO WINDOWS
      ======================================================= */
 
-  const infoOverlay = document.getElementById("infoOverlay");
-  const infoBody = document.getElementById("infoBody");
-  const infoTitle = document.getElementById("infoTitle");
+  const infoOverlay = document.getElementById(
+    "infoOverlay"
+  );
 
-  const closeInfo = document.getElementById("closeInfo");
-  const confirmInfo = document.getElementById("confirmInfo");
+  const infoBody = document.getElementById(
+    "infoBody"
+  );
 
-  const infoButtons = document.querySelectorAll("[data-info]");
+  const infoTitle = document.getElementById(
+    "infoTitle"
+  );
+
+  const closeInfo = document.getElementById(
+    "closeInfo"
+  );
+
+  const confirmInfo = document.getElementById(
+    "confirmInfo"
+  );
+
+  const infoButtons = document.querySelectorAll(
+    "[data-info]"
+  );
 
   const infoContent = {
 
@@ -294,7 +464,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   };
 
-
   /* =======================================================
      OPEN INFO
      ======================================================= */
@@ -303,15 +472,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const selectedInfo = infoContent[category];
 
-    if (!selectedInfo || !infoOverlay || !infoTitle || !infoBody) {
-      return;
-    }
+    if (!selectedInfo || !infoOverlay) return;
 
     infoTitle.textContent = selectedInfo.title;
     infoBody.innerHTML = selectedInfo.content;
 
     infoOverlay.classList.add("is-open");
-    infoOverlay.setAttribute("aria-hidden", "false");
+
+    infoOverlay.setAttribute(
+      "aria-hidden",
+      "false"
+    );
 
     document.body.classList.add("info-open");
 
@@ -320,7 +491,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   }
-
 
   /* =======================================================
      CLOSE INFO
@@ -331,12 +501,15 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!infoOverlay) return;
 
     infoOverlay.classList.remove("is-open");
-    infoOverlay.setAttribute("aria-hidden", "true");
+
+    infoOverlay.setAttribute(
+      "aria-hidden",
+      "true"
+    );
 
     document.body.classList.remove("info-open");
 
   }
-
 
   infoButtons.forEach(button => {
 
@@ -346,13 +519,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-
   if (closeInfo) {
-    closeInfo.addEventListener("click", closeInfoWindow);
+    closeInfo.addEventListener(
+      "click",
+      closeInfoWindow
+    );
   }
 
   if (confirmInfo) {
-    confirmInfo.addEventListener("click", closeInfoWindow);
+    confirmInfo.addEventListener(
+      "click",
+      closeInfoWindow
+    );
   }
 
   if (infoOverlay) {
@@ -367,7 +545,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-
   /* =======================================================
      ESCAPE KEY
      ======================================================= */
@@ -379,7 +556,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
   });
-
 
   /* =======================================================
      INITIAL STATE
