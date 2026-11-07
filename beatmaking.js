@@ -1,37 +1,9 @@
-
 /* =========================================================
    DABOGA® — BEATMAKING
    Interface interactions
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  /* =======================================================
-     LOADING SCREEN
-     Minimum initial display: 2000ms
-     ======================================================= */
-
-  const loadingScreen = document.getElementById("loadingScreen");
-  const loadingStart = Date.now();
-  const minimumLoadingTime = 2000;
-
-  function hideLoadingScreen() {
-    if (!loadingScreen) return;
-
-    const elapsed = Date.now() - loadingStart;
-    const remaining = Math.max(0, minimumLoadingTime - elapsed);
-
-    setTimeout(() => {
-      loadingScreen.classList.add("is-hidden");
-
-      setTimeout(() => {
-        loadingScreen.remove();
-      }, 500);
-
-    }, remaining);
-  }
-
-  window.addEventListener("load", hideLoadingScreen, { once: true });
 
   /* =======================================================
      CATEGORY NAVIGATION
@@ -92,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playerItems.forEach(item => {
 
       const playButton = item.querySelector('[data-action="play"]');
+      const duration = item.querySelector(".track-duration");
 
       if (!playButton) return;
 
@@ -99,6 +72,10 @@ document.addEventListener("DOMContentLoaded", () => {
       playButton.textContent = "▶";
       playButton.setAttribute("aria-label", "Play");
       playButton.setAttribute("aria-pressed", "false");
+
+      if (duration && duration.textContent === "DEMO") {
+        duration.textContent = "--:--";
+      }
 
     });
 
@@ -326,7 +303,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const selectedInfo = infoContent[category];
 
-    if (!selectedInfo || !infoOverlay) return;
+    if (!selectedInfo || !infoOverlay || !infoTitle || !infoBody) {
+      return;
+    }
 
     infoTitle.textContent = selectedInfo.title;
     infoBody.innerHTML = selectedInfo.content;
@@ -336,7 +315,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.body.classList.add("info-open");
 
-    closeInfo.focus();
+    if (closeInfo) {
+      closeInfo.focus();
+    }
 
   }
 
