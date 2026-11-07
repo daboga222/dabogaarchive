@@ -1,41 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#090909">
-
+  <meta name="description" content="DABOGA® Beatmaking — Sounds, instrumentals and digital products.">
   <title>BEATMAKING — DABOGA®</title>
-
   <link rel="stylesheet" href="beatmaking.css">
-  <link rel="stylesheet" href="site-loader.css">
-  <link rel="stylesheet" href="beatmaking-clean.css">
 </head>
 
 <body class="beatmaking-page">
 
-  <!-- DABOGA® SHARED LOADING SCREEN -->
-  <div class="loading-screen" id="loadingScreen" aria-label="Loading" aria-hidden="false">
-    <div class="loading-numbers" aria-hidden="true"><span>2</span><span>2</span><span>2</span></div>
+  <!-- LOADING SCREEN -->
+  <div class="loading-screen" id="loadingScreen" aria-label="Loading">
+    <div class="loading-numbers">
+      <span>2</span>
+      <span>2</span>
+      <span>2</span>
+    </div>
   </div>
 
   <main class="beatmaking">
 
-    <!-- GLOBAL NAVIGATION -->
-    <nav class="bm-global-nav" aria-label="Navegación principal">
-      <div class="bm-global-nav-links">
-        <a href="index.html">HOME</a>
-        <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
-        <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
-        <a href="beatmaking.html" class="active" aria-current="page">BEATMAKING</a>
-        <a href="daboga.html">DABOGA</a>
-      </div>
-      <span class="bm-global-nav-mark" aria-hidden="true">®</span>
-    </nav>
-
-    <!-- CUSTOM HEADER -->
+    <!-- HEADER -->
     <header class="bm-header">
-
       <a href="index.html" class="bm-back">
         <span class="back-arrow">←</span>
         <span>EXIT</span>
@@ -48,9 +37,16 @@
       <div class="bm-header-right">
         <span>DBG® 2026</span>
       </div>
-
     </header>
 
+    <!-- GLOBAL NAVIGATION -->
+    <nav class="site-navigation" aria-label="Main navigation">
+      <a href="index.html">HOME</a>
+      <a href="daboga.html">DABOGA</a>
+      <a href="#" class="nav-unavailable" aria-disabled="true" data-unavailable="MUSIC">MUSIC</a>
+      <a href="#" class="nav-unavailable" aria-disabled="true" data-unavailable="ARCHIVE">ARCHIVE</a>
+      <a href="beatmaking.html" class="current" aria-current="page">BEATMAKING</a>
+    </nav>
 
     <!-- MAIN CONTENT -->
     <section class="bm-content">
@@ -61,452 +57,59 @@
         <div class="bm-subtitle">SOUNDS / INSTRUMENTALS / MATERIAL</div>
       </div>
 
-
       <!-- CATEGORY NAVIGATION -->
       <nav class="category-nav" aria-label="Product categories">
-
         <button class="category-button active" data-category="beats">
           BEATS <span>20</span>
         </button>
-
         <button class="category-button" data-category="loops">
           LOOPS <span>12</span>
         </button>
-
         <button class="category-button" data-category="serum">
           SERUM KIT <span>15</span>
         </button>
-
         <button class="category-button" data-category="oneshot">
           ONESHOT KIT <span>01</span>
         </button>
-
       </nav>
-
 
       <!-- BEATS -->
       <section class="category-panel active" id="panel-beats">
-
         <div class="section-heading">
           <div>
             <div class="section-index">01 / INSTRUMENTALS</div>
             <h2>BEATS</h2>
           </div>
-
           <button class="info-button" data-info="beats" aria-label="Beat purchase information">
             INFO<span>!</span>
           </button>
         </div>
 
-
-        <!-- CLOUD -->
-        <div class="genre-section">
-
-          <div class="genre-heading">
-            <span>01.</span>
-            <h3>CLOUD / AMBIENT / ETHEREAL</h3>
-          </div>
-
-          <div class="product-list">
-
-            <div class="beat-item" data-track="01">
-              <div class="track-number">01</div>
-              <div class="track-content">
-                <div class="track-title">untitled_01</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress">
-                <div class="progress-fill"></div>
-              </div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-
-            <div class="beat-item" data-track="02">
-              <div class="track-number">02</div>
-              <div class="track-content">
-                <div class="track-title">untitled_02</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress"><div class="progress-fill"></div></div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-
-            <div class="beat-item" data-track="03">
-              <div class="track-number">03</div>
-              <div class="track-content">
-                <div class="track-title">untitled_03</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress"><div class="progress-fill"></div></div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-
-            <div class="beat-item" data-track="04">
-              <div class="track-number">04</div>
-              <div class="track-content">
-                <div class="track-title">untitled_04</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress"><div class="progress-fill"></div></div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-
-            <div class="beat-item" data-track="05">
-              <div class="track-number">05</div>
-              <div class="track-content">
-                <div class="track-title">untitled_05</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress"><div class="progress-fill"></div></div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-
-        <!-- REGGAETON -->
-        <div class="genre-section">
-
-          <div class="genre-heading">
-            <span>02.</span>
-            <h3>REGGAETON / AFRO / DANCEHALL</h3>
-          </div>
-
-          <div class="product-list">
-
-            <div class="beat-item" data-track="06">
-              <div class="track-number">06</div>
-              <div class="track-content">
-                <div class="track-title">untitled_06</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress"><div class="progress-fill"></div></div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-                          <div class="track-content">
-                <div class="track-title">untitled_20</div>
-                <div class="track-producer">PROD. DABOGA</div>
-              </div>
-              <div class="track-duration">--:--</div>
-              <div class="track-controls">
-                <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-                <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-                <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-              </div>
-              <div class="track-progress"><div class="progress-fill"></div></div>
-              <div class="track-actions">
-                <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-                <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
+        <div id="beatsContainer"></div>
       </section>
-
 
       <!-- LOOPS -->
       <section class="category-panel" id="panel-loops">
-
         <div class="section-heading">
           <div>
             <div class="section-index">02 / AUDIO MATERIAL</div>
             <h2>LOOPS</h2>
           </div>
-
           <button class="info-button" data-info="loops" aria-label="Loop purchase information">
             INFO<span>!</span>
           </button>
         </div>
 
-        <div class="product-list">
-
-          <div class="loop-item" data-track="loop01">
-            <div class="track-number">01</div>
-            <div class="track-content">
-              <div class="track-title">loop_01</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop02">
-            <div class="track-number">02</div>
-            <div class="track-content">
-              <div class="track-title">loop_02</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop03">
-            <div class="track-number">03</div>
-            <div class="track-content">
-              <div class="track-title">loop_03</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop04">
-            <div class="track-number">04</div>
-            <div class="track-content">
-              <div class="track-title">loop_04</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop05">
-            <div class="track-number">05</div>
-            <div class="track-content">
-              <div class="track-title">loop_05</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop06">
-            <div class="track-number">06</div>
-            <div class="track-content">
-              <div class="track-title">loop_06</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop07">
-            <div class="track-number">07</div>
-            <div class="track-content">
-              <div class="track-title">loop_07</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop08">
-            <div class="track-number">08</div>
-            <div class="track-content">
-              <div class="track-title">loop_08</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop09">
-            <div class="track-number">09</div>
-            <div class="track-content">
-              <div class="track-title">loop_09</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop10">
-            <div class="track-number">10</div>
-            <div class="track-content">
-              <div class="track-title">loop_10</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop11">
-            <div class="track-number">11</div>
-            <div class="track-content">
-              <div class="track-title">loop_11</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-          <div class="loop-item" data-track="loop12">
-            <div class="track-number">12</div>
-            <div class="track-content">
-              <div class="track-title">loop_12</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            <div class="track-controls">
-              <button class="player-control" data-action="previous">|◀</button>
-              <button class="player-control play-button" data-action="play">▶</button>
-              <button class="player-control" data-action="next">▶|</button>
-            </div>
-            <div class="track-progress"><div class="progress-fill"></div></div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-
-        </div>
-
+        <div class="product-list" id="loopsContainer"></div>
       </section>
-
 
       <!-- SERUM KIT -->
       <section class="category-panel" id="panel-serum">
-
         <div class="section-heading">
           <div>
             <div class="section-index">03 / SYNTHESIS</div>
             <h2>SERUM KIT</h2>
           </div>
-
           <button class="info-button" data-info="serum" aria-label="Serum kit purchase information">
             INFO<span>!</span>
           </button>
@@ -514,14 +117,12 @@
 
         <div class="kit-card">
           <div class="kit-visual">S2</div>
-
           <div class="kit-description">
             <div class="kit-label">DIGITAL PRESET COLLECTION / SERUM 2</div>
             <h3>SERUM PRESET KIT</h3>
             <p>15 PRESETS / SERUM 2</p>
             <div class="kit-price">4,99€</div>
           </div>
-
           <div class="kit-action">
             <button class="buy-button" disabled>BUY NOW <span>4,99€</span></button>
             <div class="kit-note">NO PREVIEW AVAILABLE</div>
@@ -532,19 +133,15 @@
           <span>FORMAT / SERUM 2 PRESETS</span>
           <span>15 FILES / DIGITAL DOWNLOAD</span>
         </div>
-
       </section>
-
 
       <!-- ONESHOT KIT -->
       <section class="category-panel" id="panel-oneshot">
-
         <div class="section-heading">
           <div>
             <div class="section-index">04 / SAMPLE COLLECTION</div>
             <h2>ONESHOT KIT</h2>
           </div>
-
           <button class="info-button" data-info="oneshot" aria-label="Oneshot kit purchase information">
             INFO<span>!</span>
           </button>
@@ -552,14 +149,12 @@
 
         <div class="kit-card">
           <div class="kit-visual">.WAV</div>
-
           <div class="kit-description">
             <div class="kit-label">DIGITAL SAMPLE COLLECTION</div>
             <h3>DABOGA ONESHOT KIT</h3>
             <p>20–30 WAV FILES / ZIP</p>
             <div class="kit-price">4,99€</div>
           </div>
-
           <div class="kit-action">
             <button class="buy-button" disabled>BUY NOW <span>4,99€</span></button>
             <div class="kit-note">NO PREVIEW AVAILABLE</div>
@@ -570,9 +165,7 @@
           <span>FORMAT / WAV</span>
           <span>ZIP / DIGITAL DOWNLOAD</span>
         </div>
-
       </section>
-
 
       <!-- BOTTOM INFORMATION -->
       <div class="bm-bottom">
@@ -582,45 +175,148 @@
       </div>
 
     </section>
-
   </main>
-
 
   <!-- INFO POPUP -->
   <div class="info-overlay" id="infoOverlay" aria-hidden="true">
-
     <section
       class="info-window"
       role="dialog"
       aria-modal="true"
       aria-labelledby="infoTitle"
     >
-
       <div class="window-titlebar">
         <span id="infoTitle">DABOGA® / INFORMATION</span>
         <button class="window-close" id="closeInfo" aria-label="Close">×</button>
       </div>
 
       <div class="window-content">
-
         <div class="window-eyebrow">PURCHASE INFORMATION / 001</div>
-
         <div id="infoBody"></div>
-
         <div class="window-footer">
           <span>DBG® DIGITAL ARCHIVE</span>
           <button id="confirmInfo">CLOSE</button>
         </div>
-
       </div>
-
     </section>
-
   </div>
 
+  <!-- PRODUCT MARKUP -->
+  <script>
+    (() => {
+      const beatsContainer = document.getElementById("beatsContainer");
+      const loopsContainer = document.getElementById("loopsContainer");
+
+      const genres = [
+        {
+          number: "01.",
+          title: "CLOUD / AMBIENT / ETHEREAL",
+          start: 1,
+          end: 5
+        },
+        {
+          number: "02.",
+          title: "REGGAETON / AFRO / DANCEHALL",
+          start: 6,
+          end: 10
+        },
+        {
+          number: "03.",
+          title: "TRAP / RAGE",
+          start: 11,
+          end: 15
+        },
+        {
+          number: "04.",
+          title: "OTHER",
+          start: 16,
+          end: 20
+        }
+      ];
+
+      function playerControls() {
+        return `
+          <div class="track-controls">
+            <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
+            <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
+            <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
+          </div>
+        `;
+      }
+
+      function beatMarkup(number) {
+        const id = String(number).padStart(2, "0");
+
+        return `
+          <div class="beat-item" data-track="${id}">
+            <div class="track-number">${id}</div>
+            <div class="track-content">
+              <div class="track-title">untitled_${id}</div>
+              <div class="track-producer">PROD. DABOGA</div>
+            </div>
+            <div class="track-duration">--:--</div>
+            ${playerControls()}
+            <div class="track-progress">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="track-actions">
+              <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
+              <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
+            </div>
+          </div>
+        `;
+      }
+
+      genres.forEach(genre => {
+        let products = "";
+
+        for (let i = genre.start; i <= genre.end; i++) {
+          products += beatMarkup(i);
+        }
+
+        const section = document.createElement("div");
+        section.className = "genre-section";
+        section.innerHTML = `
+          <div class="genre-heading">
+            <span>${genre.number}</span>
+            <h3>${genre.title}</h3>
+          </div>
+          <div class="product-list">${products}</div>
+        `;
+
+        beatsContainer.appendChild(section);
+      });
+
+      for (let i = 1; i <= 12; i++) {
+        const id = String(i).padStart(2, "0");
+
+        loopsContainer.insertAdjacentHTML("beforeend", `
+          <div class="loop-item" data-track="loop${id}">
+            <div class="track-number">${id}</div>
+            <div class="track-content">
+              <div class="track-title">loop_${id}</div>
+              <div class="track-producer">DABOGA / WAV</div>
+            </div>
+            <div class="track-duration">--:--</div>
+            ${playerControls()}
+            <div class="track-progress">
+              <div class="progress-fill"></div>
+            </div>
+            <div class="track-actions">
+              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
+            </div>
+          </div>
+        `);
+      }
+
+      document.querySelectorAll(".nav-unavailable").forEach(link => {
+        link.addEventListener("click", event => {
+          event.preventDefault();
+        });
+      });
+    })();
+  </script>
 
   <script src="beatmaking.js"></script>
-  <script src="site-loader.js"></script>
-
 </body>
 </html>
