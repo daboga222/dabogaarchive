@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,39 +9,81 @@
 
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="daboga.css">
+  <link rel="stylesheet" href="site-loader.css">
 </head>
 
 <body>
+
+  <!-- PANTALLA DE CARGA -->
+  <div
+    class="loading-screen"
+    id="loadingScreen"
+    aria-label="Loading"
+    aria-hidden="false"
+  >
+    <div class="loading-numbers" aria-hidden="true">
+      <span>2</span>
+      <span>2</span>
+      <span>2</span>
+    </div>
+  </div>
+
   <div class="site profile-site">
 
+    <!-- NAVEGACIÓN PRINCIPAL -->
     <nav class="nav" aria-label="Navegación principal">
+
       <div class="nav-links">
+
         <a href="index.html">HOME</a>
-        <a href="#">MUSIC</a>
-        <a href="#">ARCHIVE</a>
-        <a href="#">BEATMAKING</a>
-        <a href="daboga.html" class="active" aria-current="page">DABOGA</a>
+
+        <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
+
+        <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
+
+        <a href="beatmaking.html">BEATMAKING</a>
+
+        <a
+          href="daboga.html"
+          class="active"
+          aria-current="page"
+        >DABOGA</a>
+
       </div>
 
       <div class="nav-mark" aria-hidden="true">®</div>
+
     </nav>
 
+    <!-- PERFIL DEL ARTISTA -->
     <main class="profile-main">
+
       <section class="artist-profile" aria-label="Perfil de DaBoga">
 
         <div class="profile-photo-wrap">
+
           <img
             class="profile-photo"
             src="images/DABOGA_PROFILEPIC.jpeg"
             alt="Retrato de DaBoga en blanco y negro"
           >
+
         </div>
 
         <div class="profile-copy">
 
-          <h1 class="profile-title">DABOGA<span>®</span></h1>
+          <h1 class="profile-title">
+            DABOGA<span>®</span>
+          </h1>
 
-          <p class="artist-bio">DaBoga es un artista y productor madrileño con raíces gallegas en activo desde principios de 2023. Temas como el amor, la nostalgia o la moda se han ido transformando a lo largo de proyectos casi autobiográficos en los que el digicore, el rage y el cloudrap se solapan para dar cabida a un espacio sonoro que hoy es su identidad.</p>
+          <p class="artist-bio">
+            DaBoga es un artista y productor madrileño con raíces gallegas
+            en activo desde principios de 2023. Temas como el amor, la
+            nostalgia o la moda se han ido transformando a lo largo de
+            proyectos casi autobiográficos en los que el digicore, el
+            rage y el cloudrap se solapan para dar cabida a un espacio
+            sonoro que hoy es su identidad.
+          </p>
 
           <section class="profile-socials" aria-label="Música y redes">
 
@@ -67,17 +108,27 @@
             </a>
 
           </section>
+
         </div>
 
       </section>
+
     </main>
 
+    <!-- INFORMACIÓN INFERIOR -->
     <footer class="bottom-info" aria-label="Información">
+
       <span>DBG® 2026</span>
+
       <span>MAD / GZ</span>
+
       <span>PROD / ARTIST</span>
+
     </footer>
 
   </div>
+
+  <script src="site-loader.js"></script>
+
 </body>
 </html>
