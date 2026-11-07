@@ -1,10 +1,9 @@
-/* =========================================================
+/* ==========================================
    DABOGA® — ARTIST PROFILE
-   Perfil editorial: foto arriba/izquierda + bio a la derecha
-   Este archivo solo afecta a daboga.html.
-   ========================================================= */
+   ========================================== */
 
-/* ---------- CONTENEDOR ---------- */
+/* BASE */
+
 .profile-site {
   position: relative;
   width: 100%;
@@ -12,7 +11,13 @@
   min-height: 100svh;
   overflow: hidden;
   background: #090909;
+  color: #efefee;
+  font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
+  font-stretch: condensed;
 }
+
+
+/* CONTENIDO PRINCIPAL */
 
 .profile-main {
   position: relative;
@@ -26,6 +31,9 @@
   overflow: visible;
 }
 
+
+/* COMPOSICIÓN DEL PERFIL */
+
 .artist-profile {
   display: grid;
   grid-template-columns: minmax(190px, 296px) minmax(340px, 560px);
@@ -36,7 +44,9 @@
   padding: 0;
 }
 
-/* ---------- FOTO ---------- */
+
+/* FOTOGRAFÍA */
+
 .profile-photo-wrap {
   display: flex;
   justify-content: flex-start;
@@ -61,11 +71,15 @@
   -webkit-user-drag: none;
 }
 
-/* ---------- TEXTO ---------- */
-/* El título DABOGA® no aparece en la composición aprobada. */
+
+/* TÍTULO */
+
 .profile-title {
   display: none !important;
 }
+
+
+/* BIOGRAFÍA */
 
 .profile-copy {
   display: flex;
@@ -86,7 +100,7 @@
   min-width: 0;
   margin: 0;
   color: #efefee;
-  font-family: "Arial Narrow", "Roboto Condensed", "Courier New", monospace;
+  font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
   font-size: clamp(13px, 1.05vw, 16px);
   font-stretch: condensed;
   font-weight: 500;
@@ -102,7 +116,9 @@
   text-transform: uppercase;
 }
 
-/* ---------- REDES ---------- */
+
+/* REDES SOCIALES */
+
 .profile-socials {
   display: flex;
   flex-direction: row;
@@ -153,7 +169,9 @@
   box-shadow: none;
 }
 
-/* ---------- FOOTER ---------- */
+
+/* INFORMACIÓN INFERIOR */
+
 .profile-site > .bottom-info {
   position: absolute;
   z-index: 30;
@@ -165,14 +183,21 @@
   padding: 0 4vw;
 }
 
-/* ---------- TABLET ---------- */
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
 @media (min-width: 701px) and (max-width: 1050px) {
+
   .profile-main {
     padding: 15vh 5vw 120px;
   }
 
   .artist-profile {
-    grid-template-columns: minmax(180px, 250px) minmax(300px, 1fr);
+    grid-template-columns:
+      minmax(180px, 250px)
+      minmax(300px, 1fr);
     column-gap: clamp(48px, 7vw, 88px);
   }
 
@@ -189,10 +214,16 @@
     line-height: 1.95;
     word-spacing: 0.65em;
   }
+
 }
 
-/* ---------- MÓVIL ---------- */
+
+/* ==========================================
+   MÓVIL
+   ========================================== */
+
 @media (max-width: 700px) {
+
   .profile-site {
     min-height: 100svh;
     overflow-x: hidden;
@@ -253,10 +284,16 @@
     padding: 0 6vw 28px;
     margin-top: -70px;
   }
+
 }
 
-/* ---------- MÓVIL ESTRECHO ---------- */
+
+/* ==========================================
+   MÓVILES PEQUEÑOS
+   ========================================== */
+
 @media (max-width: 390px) {
+
   .profile-main {
     padding-top: 88px;
   }
@@ -274,16 +311,24 @@
     line-height: 1.85;
     word-spacing: 0.32em;
   }
+
 }
 
-/* ---------- MÓVIL EN HORIZONTAL ---------- */
+
+/* ==========================================
+   MÓVIL EN HORIZONTAL
+   ========================================== */
+
 @media (max-width: 700px) and (max-height: 500px) and (orientation: landscape) {
+
   .profile-main {
     padding-top: 82px;
   }
 
   .artist-profile {
-    grid-template-columns: minmax(130px, 190px) minmax(0, 1fr);
+    grid-template-columns:
+      minmax(130px, 190px)
+      minmax(0, 1fr);
     column-gap: 7vw;
     row-gap: 0;
   }
@@ -309,4 +354,5 @@
     margin: 0;
     padding: 0 6vw;
   }
+
 }
