@@ -7,13 +7,20 @@
   <meta name="theme-color" content="#090909">
   <meta name="description" content="DABOGA® Beatmaking — Sounds, instrumentals and digital products.">
   <title>BEATMAKING — DABOGA®</title>
+
   <link rel="stylesheet" href="beatmaking.css">
+  <link rel="stylesheet" href="site-loader.css">
 </head>
 
-<body class="beatmaking-page">
+<body class="beatmaking-page" data-section="beatmaking">
 
-  <!-- LOADING SCREEN -->
-  <div class="loading-screen" id="loadingScreen" aria-label="Loading">
+  <!-- GLOBAL LOADING SCREEN -->
+  <div
+    class="loading-screen"
+    id="loadingScreen"
+    aria-label="Loading"
+    aria-hidden="false"
+  >
     <div class="loading-numbers">
       <span>2</span>
       <span>2</span>
@@ -317,6 +324,11 @@
     })();
   </script>
 
+  <!-- INTERFACE INTERACTIONS -->
   <script src="beatmaking.js"></script>
+
+  <!-- GLOBAL LOADER -->
+  <script src="site-loader.js"></script>
+
 </body>
 </html>
