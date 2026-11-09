@@ -6,120 +6,6 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-
-  const loadingScreen = document.getElementById("loadingScreen");
-  const navigationKey = "dabogaNavigationStart";
-  const minimumLoadingTime = 2000;
-  const noFlashThreshold = 1500;
-
-  let navigationStart = null;
-
-  try {
-    const storedTime = sessionStorage.getItem(navigationKey);
-
-    if (storedTime) {
-      navigationStart = Number(storedTime);
-      sessionStorage.removeItem(navigationKey);
-    }
-  } catch (error) {
-    navigationStart = null;
-  }
-
-  const isInternalNavigation =
-    Number.isFinite(navigationStart) &&
-    navigationStart > 0;
-
-  const elapsedAtStart = isInternalNavigation
-    ? Math.max(0, Date.now() - navigationStart)
-    : 0;
-
-  const shouldShowLoader =
-    !isInternalNavigation ||
-    elapsedAtStart >= noFlashThreshold;
-
-  function hideLoadingScreen() {
-    if (!loadingScreen) return;
-
-    if (!shouldShowLoader) {
-      loadingScreen.classList.add("is-hidden");
-      loadingScreen.remove();
-      return;
-    }
-
-    const elapsed = isInternalNavigation
-      ? Date.now() - navigationStart
-      : Date.now() - pageStart;
-
-    const remaining = Math.max(
-      0,
-      minimumLoadingTime - elapsed
-    );
-
-    window.setTimeout(() => {
-      loadingScreen.classList.add("is-hidden");
-
-      window.setTimeout(() => {
-        loadingScreen.remove();
-      }, 400);
-
-    }, remaining);
-  }
-
-  const pageStart = Date.now();
-
-  if (loadingScreen && !shouldShowLoader) {
-    loadingScreen.classList.add("is-hidden");
-    loadingScreen.remove();
-  }
-
-  if (document.readyState === "complete") {
-    hideLoadingScreen();
-  } else {
-    window.addEventListener("load", hideLoadingScreen, {
-      once: true
-    });
-  }
-
-  /* =======================================================
-     INTERNAL NAVIGATION TIMESTAMP
-     ======================================================= */
-
-  document.querySelectorAll(
-    'a[href="index.html"], a[href="daboga.html"], a[href="beatmaking.html"]'
-  ).forEach(link => {
-
-    link.addEventListener("click", event => {
-
-      if (
-        event.defaultPrevented ||
-        event.button !== 0 ||
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      ) {
-        return;
-      }
-
-      try {
-        sessionStorage.setItem(
-          navigationKey,
-          String(Date.now())
-        );
-      } catch (error) {
-        // Navigation continues normally if storage is unavailable.
-      }
-
-    });
-
-  });
-
-  document.querySelectorAll(".nav-unavailable").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-    });
-  });
-
   /* =======================================================
      CATEGORY NAVIGATION
      ======================================================= */
@@ -131,6 +17,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const categoryPanels = document.querySelectorAll(
     ".category-panel"
   );
+
+  const playerItems = document.querySelectorAll(
+    ".beat-item, .loop-item"
+  );
+
+  function stopAllPlayers() {
+
+    playerItems.forEach(item => {
+
+      const playButton = item.querySelector(
+        '[data-action="play"]'
+      );
+
+      const duration = item.querySelector(
+        ".track-duration"
+      );
+
+      if (!playButton) return;
+
+      playButton.classList.remove("is-playing");
+      playButton.textContent = "▶";
+      playButton.setAttribute("aria-label", "Play");
+      playButton.setAttribute("aria-pressed", "false");
+
+      if (duration) {
+        duration.textContent = "--:--";
+      }
+
+    });
+
+  }
 
   function activateCategory(category) {
 
@@ -182,37 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
      PLAYER INTERFACE
      No audio files connected in this prototype.
      ======================================================= */
-
-  const playerItems = document.querySelectorAll(
-    ".beat-item, .loop-item"
-  );
-
-  function stopAllPlayers() {
-
-    playerItems.forEach(item => {
-
-      const playButton = item.querySelector(
-        '[data-action="play"]'
-      );
-
-      const duration = item.querySelector(
-        ".track-duration"
-      );
-
-      if (!playButton) return;
-
-      playButton.classList.remove("is-playing");
-      playButton.textContent = "▶";
-      playButton.setAttribute("aria-label", "Play");
-      playButton.setAttribute("aria-pressed", "false");
-
-      if (duration) {
-        duration.textContent = "--:--";
-      }
-
-    });
-
-  }
 
   playerItems.forEach(item => {
 
