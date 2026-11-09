@@ -1,93 +1,97 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090909">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090909">
 
-  <title>DABOGA</title>
+    <title>DABOGA</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="site-loader.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="site-loader.css">
 </head>
 
-<body>
+<body data-section="home">
 
-  <div class="loading-screen" id="loadingScreen" aria-label="Loading" aria-hidden="false">
-    <div class="loading-numbers" aria-hidden="true">
-      <span>2</span>
-      <span>2</span>
-      <span>2</span>
-    </div>
-  </div>
-
-  <div class="site">
-
-    <nav class="nav" aria-label="Navegación principal">
-
-      <div class="nav-links">
-
-        <a
-          href="index.html"
-          class="active"
-          aria-current="page"
-        >HOME</a>
-
-        <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
-
-        <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
-
-        <a href="beatmaking.html">BEATMAKING</a>
-
-        <a href="daboga.html">DABOGA</a>
-
-      </div>
-
-      <div class="nav-mark" aria-hidden="true">®</div>
-
-    </nav>
-
-    <main class="home">
-
-      <div class="surface" aria-hidden="true"></div>
-
-      <div class="grain" aria-hidden="true"></div>
-
-      <div class="content">
-
-        <a
-          class="image-link"
-          href="presave.html"
-          aria-label="Abrir presave de 222"
-        >
-          <img
-            src="images/222_altcover_1.jpeg"
-            alt="222 — alt cover"
-          >
-        </a>
-
-        <h1 aria-label="DABOGA">
-          <span class="wordmark">DABOGA</span>
-          <span class="reg" aria-hidden="true">®</span>
-        </h1>
-
-        <div class="bottom-info" aria-label="Información">
-
-          <span>DBG® 2026</span>
-
-          <span>MAD / GZ</span>
-
-          <span>PROD / ARTIST</span>
-
+    <!-- GLOBAL LOADER -->
+    <div
+        class="loading-screen is-pending"
+        id="loadingScreen"
+        aria-label="Loading"
+        aria-hidden="true"
+    >
+        <div class="loading-numbers" aria-hidden="true">
+            <span>2</span>
+            <span>2</span>
+            <span>2</span>
         </div>
+    </div>
 
-      </div>
+    <div class="site">
 
-    </main>
+        <nav class="nav" aria-label="Navegación principal">
 
-  </div>
+            <div class="nav-links">
 
-  <script src="site-loader.js"></script>
+                <a href="index.html" class="active" aria-current="page">HOME</a>
+
+                <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
+
+                <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
+
+                <a href="beatmaking.html">BEATMAKING</a>
+
+                <a href="daboga.html">DABOGA</a>
+
+            </div>
+
+            <div class="nav-mark" aria-hidden="true">®</div>
+
+        </nav>
+
+        <main class="home">
+
+            <div class="surface" aria-hidden="true"></div>
+
+            <div class="grain" aria-hidden="true"></div>
+
+            <div class="content">
+
+                <a
+                    class="image-link"
+                    href="presave.html"
+                    aria-label="Abrir presave de 222"
+                >
+                    <img
+                        src="images/222_altcover_1.jpeg"
+                        alt="222 — alt cover"
+                    >
+                </a>
+
+                <h1 aria-label="DABOGA">
+                    <span class="wordmark">DABOGA</span>
+                    <span class="reg" aria-hidden="true">®</span>
+                </h1>
+
+                <div class="bottom-info" aria-label="Información">
+
+                    <span>DBG® 2026</span>
+
+                    <span>MAD / GZ</span>
+
+                    <span>PROD / ARTIST</span>
+
+                </div>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <script src="site-loader.js"></script>
 
 </body>
 </html>
