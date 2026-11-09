@@ -1,11 +1,10 @@
+
 (() => {
     "use strict";
 
     const screen = document.getElementById("loadingScreen");
 
-    if (!screen) {
-        return;
-    }
+    if (!screen) return;
 
     const STORAGE_KEY = "dabogaNavigationStarted";
     const MINIMUM_DISPLAY_TIME = 2000;
@@ -15,7 +14,7 @@
     let startedAt = Date.now();
     let internalNavigation = false;
 
-    // Recuperar el momento en que comenzó la navegación interna.
+    // Recuperar el inicio de una navegación interna.
     try {
         const storedValue = sessionStorage.getItem(STORAGE_KEY);
 
@@ -30,19 +29,17 @@
             sessionStorage.removeItem(STORAGE_KEY);
         }
     } catch (error) {
-        // El sistema sigue funcionando si sessionStorage no está disponible.
+        // El loader sigue funcionando sin sessionStorage.
     }
 
-    const elapsed = Math.max(0, Date.now() - startedAt);
+    const elapsed = Date.now() - startedAt;
 
-    // Evitar que el loader parpadee en navegaciones rápidas.
+    // Evitar mostrar el loader en navegaciones demasiado rápidas.
     if (internalNavigation && elapsed < NAVIGATION_THRESHOLD) {
         screen.remove();
         return;
     }
 
-    // Ocultar el loader cuando la página esté lista,
-    // respetando el tiempo mínimo de visualización.
     const hideLoadingScreen = () => {
         const remainingTime = Math.max(
             0,
@@ -68,13 +65,11 @@
         });
     }
 
-    // Registrar únicamente los enlaces internos reales.
+    // Registrar navegación entre páginas de la propia web.
     document.addEventListener("click", (event) => {
         const link = event.target.closest("a[href]");
 
-        if (!link) {
-            return;
-        }
+        if (!link) return;
 
         if (
             event.defaultPrevented ||
@@ -82,21 +77,16 @@
             event.metaKey ||
             event.ctrlKey ||
             event.shiftKey ||
-            event.altKey
+            event.altKey ||
+            link.target === "_blank" ||
+            link.hasAttribute("download")
         ) {
             return;
         }
 
         const href = link.getAttribute("href");
 
-        if (
-            !href ||
-            href === "#" ||
-            link.target === "_blank" ||
-            link.hasAttribute("download")
-        ) {
-            return;
-        }
+        if (!href || href === "#") return;
 
         let destination;
 
@@ -106,11 +96,11 @@
             return;
         }
 
-        // No activar el loader para enlaces externos
-        // ni para enlaces a la página actual.
         if (
             destination.origin !== window.location.origin ||
-            destination.href === window.location.href
+            destination.pathname === window.location.pathname &&
+            destination.search === window.location.search &&
+            destination.hash
         ) {
             return;
         }
@@ -121,7 +111,7 @@
                 String(Date.now())
             );
         } catch (error) {
-            // La navegación continúa aunque falle el almacenamiento.
+            // La navegación continúa normalmente.
         }
     });
 })();
