@@ -1,3 +1,4 @@
+
 /* ==========================================
    DABOGA® — ARTIST PROFILE
    ========================================== */
@@ -14,6 +15,8 @@
   color: #efefee;
   font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
   font-stretch: condensed;
+  -webkit-font-smoothing: antialiased;
+  text-transform: lowercase;
 }
 
 
@@ -113,7 +116,7 @@
   -webkit-hyphens: none;
   word-break: normal;
   overflow-wrap: normal;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 
