@@ -1,16 +1,23 @@
+
 .loading-screen {
     position: fixed;
     inset: 0;
     z-index: 99999;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     background: #090909;
     color: #efefee;
+
     opacity: 1;
     visibility: visible;
-    transition: opacity .45s ease, visibility .45s ease;
     pointer-events: all;
+
+    transition:
+        opacity .5s ease,
+        visibility .5s ease;
 }
 
 .loading-screen.is-hidden {
@@ -23,9 +30,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: clamp(9px, 1.4vw, 18px);
-    font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
-    font-size: clamp(48px, 8vw, 88px);
+
+    gap: clamp(10px, 1.5vw, 20px);
+
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
+
+    font-size: clamp(52px, 8vw, 88px);
     font-weight: 500;
     line-height: 1;
     letter-spacing: -.09em;
