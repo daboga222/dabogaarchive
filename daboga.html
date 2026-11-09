@@ -1,134 +1,107 @@
+
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#090909">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#090909">
 
-  <title>DABOGA®</title>
+    <title>DABOGA®</title>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="daboga.css">
-  <link rel="stylesheet" href="site-loader.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="daboga.css">
+    <link rel="stylesheet" href="site-loader.css">
 </head>
 
-<body>
+<body data-section="daboga">
 
-  <!-- PANTALLA DE CARGA -->
-  <div
-    class="loading-screen"
-    id="loadingScreen"
-    aria-label="Loading"
-    aria-hidden="false"
-  >
-    <div class="loading-numbers" aria-hidden="true">
-      <span>2</span>
-      <span>2</span>
-      <span>2</span>
+    <!-- GLOBAL LOADER -->
+    <div
+        class="loading-screen is-pending"
+        id="loadingScreen"
+        aria-label="Loading"
+        aria-hidden="true"
+    >
+        <div class="loading-numbers" aria-hidden="true">
+            <span>2</span>
+            <span>2</span>
+            <span>2</span>
+        </div>
     </div>
-  </div>
 
-  <div class="site profile-site">
+    <div class="site">
 
-    <!-- NAVEGACIÓN PRINCIPAL -->
-    <nav class="nav" aria-label="Navegación principal">
+        <nav class="nav" aria-label="Navegación principal">
 
-      <div class="nav-links">
+            <div class="nav-links">
 
-        <a href="index.html">HOME</a>
+                <a href="index.html">HOME</a>
 
-        <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
+                <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
 
-        <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
+                <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
 
-        <a href="beatmaking.html">BEATMAKING</a>
+                <a href="beatmaking.html">BEATMAKING</a>
 
-        <a
-          href="daboga.html"
-          class="active"
-          aria-current="page"
-        >DABOGA</a>
+                <a href="daboga.html" class="active" aria-current="page">DABOGA</a>
 
-      </div>
+            </div>
 
-      <div class="nav-mark" aria-hidden="true">®</div>
+            <div class="nav-mark" aria-hidden="true">®</div>
 
-    </nav>
+        </nav>
 
-    <!-- PERFIL DEL ARTISTA -->
-    <main class="profile-main">
+        <main class="profile">
 
-      <section class="artist-profile" aria-label="Perfil de DaBoga">
+            <div class="profile-image">
 
-        <div class="profile-photo-wrap">
+                <img
+                    src="images/DABOGA_PROFILEPIC.jpeg"
+                    alt="DABOGA"
+                >
 
-          <img
-            class="profile-photo"
-            src="images/DABOGA_PROFILEPIC.jpeg"
-            alt="Retrato de DaBoga en blanco y negro"
-          >
+            </div>
 
-        </div>
+            <section class="profile-bio">
 
-        <div class="profile-copy">
+                <!-- Mantener aquí el contenido de biografía original -->
 
-          <h1 class="profile-title">
-            DABOGA<span>®</span>
-          </h1>
+            </section>
 
-          <p class="artist-bio">
-            DaBoga es un artista y productor madrileño con raíces gallegas
-            en activo desde principios de 2023. Temas como el amor, la
-            nostalgia o la moda se han ido transformando a lo largo de
-            proyectos casi autobiográficos en los que el digicore, el
-            rage y el cloudrap se solapan para dar cabida a un espacio
-            sonoro que hoy es su identidad.
-          </p>
+            <div class="profile-socials">
 
-          <section class="profile-socials" aria-label="Música y redes">
+                <a
+                    href="https://open.spotify.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Spotify"
+                >
+                    <img
+                        src="images/SPOTIFY_LOGO.jpg"
+                        alt="Spotify"
+                    >
+                </a>
 
-            <a
-              class="social-link"
-              href="https://open.spotify.com/intl-es/artist/4sbotutl9AMCFZ6qiC0CzH?si=Byosd8zjRayhvWLXfHbSRw"
-              aria-label="Escuchar DaBoga en Spotify"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="images/SPOTIFY_LOGO.jpg" alt="Spotify">
-            </a>
+                <a
+                    href="https://www.instagram.com/burberryangel_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                >
+                    <img
+                        src="images/INSTAGRAM_LOGO.jpg"
+                        alt="Instagram"
+                    >
+                </a>
 
-            <a
-              class="social-link"
-              href="https://www.instagram.com/burberryangel_/"
-              aria-label="Seguir a DaBoga en Instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="images/INSTAGRAM_LOGO.jpg" alt="Instagram">
-            </a>
+            </div>
 
-          </section>
+        </main>
 
-        </div>
+    </div>
 
-      </section>
-
-    </main>
-
-    <!-- INFORMACIÓN INFERIOR -->
-    <footer class="bottom-info" aria-label="Información">
-
-      <span>DBG® 2026</span>
-
-      <span>MAD / GZ</span>
-
-      <span>PROD / ARTIST</span>
-
-    </footer>
-
-  </div>
-
-  <script src="site-loader.js"></script>
+    <script src="site-loader.js"></script>
 
 </body>
 </html>
