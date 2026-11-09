@@ -16,7 +16,6 @@
   font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
   font-stretch: condensed;
   -webkit-font-smoothing: antialiased;
-  text-transform: lowercase;
 }
 
 
@@ -27,7 +26,7 @@
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-  padding: clamp(112px, 17vh, 176px) 7vw 128px;
+  padding: clamp(112px, 17vh, 176px) 6vw 128px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -39,10 +38,10 @@
 
 .artist-profile {
   display: grid;
-  grid-template-columns: minmax(190px, 296px) minmax(340px, 560px);
+  grid-template-columns: minmax(190px, 296px) minmax(340px, 620px);
   align-items: start;
-  column-gap: clamp(76px, 9.5vw, 156px);
-  width: min(100%, 1120px);
+  column-gap: clamp(65px, 7.5vw, 120px);
+  width: min(100%, 1160px);
   margin: 0 auto;
   padding: 0;
 }
@@ -58,7 +57,8 @@
   min-width: 0;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: visible;
+  transform: translateX(18px);
 }
 
 .profile-photo {
@@ -87,22 +87,22 @@
 .profile-copy {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   justify-content: flex-start;
   width: 100%;
-  max-width: 560px;
+  max-width: 620px;
   min-width: 0;
   margin: 0;
-  padding: clamp(82px, 10vh, 118px) 0 0;
-  gap: 28px;
+  padding: clamp(76px, 9vh, 108px) 0 0;
+  gap: 24px;
 }
 
 .artist-bio {
   margin: 0;
   padding: 0;
   font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
-  font-size: clamp(14px, 1.15vw, 17px);
-  line-height: 1.15;
+  font-size: clamp(16px, 1.25vw, 18px);
+  line-height: 1.28;
   font-weight: 400;
   letter-spacing: -0.025em;
   text-align: justify;
@@ -116,9 +116,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   flex-wrap: nowrap;
-  gap: 25px;
+  gap: 32px;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -153,8 +153,8 @@
 .profile-socials .social-link img {
   display: block;
   width: auto;
-  height: 25px;
-  max-width: 90px;
+  height: 31px;
+  max-width: 100px;
   object-fit: contain;
   border: 0;
   outline: 0;
@@ -191,7 +191,11 @@
     grid-template-columns:
       minmax(180px, 250px)
       minmax(300px, 1fr);
-    column-gap: clamp(48px, 7vw, 88px);
+    column-gap: clamp(40px, 5vw, 70px);
+  }
+
+  .profile-photo-wrap {
+    transform: translateX(10px);
   }
 
   .profile-photo {
@@ -199,13 +203,17 @@
   }
 
   .profile-copy {
-    padding-top: 8vh;
+    padding-top: 7vh;
   }
 
   .artist-bio {
-    font-size: clamp(12px, 1.45vw, 15px);
-    line-height: 1.95;
-    word-spacing: 0.65em;
+    font-size: clamp(15px, 1.65vw, 17px);
+    line-height: 1.3;
+    word-spacing: normal;
+  }
+
+  .profile-socials {
+    gap: 28px;
   }
 
 }
@@ -239,6 +247,7 @@
 
   .profile-photo-wrap {
     justify-content: flex-start;
+    transform: none;
   }
 
   .profile-photo {
@@ -249,26 +258,27 @@
 
   .profile-copy {
     padding-top: 0;
-    gap: 22px;
+    gap: 24px;
     max-width: 100%;
   }
 
   .artist-bio {
     max-width: 100%;
-    font-size: clamp(12px, 3.1vw, 15px);
-    line-height: 1.9;
-    letter-spacing: 0.015em;
-    word-spacing: 0.45em;
-    text-align: left;
+    font-size: clamp(14px, 3.5vw, 16px);
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+    word-spacing: normal;
+    text-align: justify;
     text-align-last: left;
   }
 
   .profile-socials {
-    gap: 22px;
+    justify-content: center;
+    gap: 28px;
   }
 
   .profile-socials .social-link img {
-    height: 23px;
+    height: 27px;
   }
 
   .profile-site > .bottom-info {
@@ -300,9 +310,9 @@
   }
 
   .artist-bio {
-    font-size: 12px;
-    line-height: 1.85;
-    word-spacing: 0.32em;
+    font-size: 14px;
+    line-height: 1.35;
+    word-spacing: normal;
   }
 
 }
@@ -326,6 +336,10 @@
     row-gap: 0;
   }
 
+  .profile-photo-wrap {
+    transform: none;
+  }
+
   .profile-photo {
     width: 100%;
     max-width: 190px;
@@ -336,9 +350,13 @@
   }
 
   .artist-bio {
-    font-size: 11px;
-    line-height: 1.65;
-    word-spacing: 0.25em;
+    font-size: 13px;
+    line-height: 1.3;
+    word-spacing: normal;
+  }
+
+  .profile-socials {
+    justify-content: center;
   }
 
   .profile-site > .bottom-info {
