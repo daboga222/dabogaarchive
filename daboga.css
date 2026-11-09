@@ -98,25 +98,15 @@
 }
 
 .artist-bio {
-  width: 100%;
-  max-width: 540px;
-  min-width: 0;
   margin: 0;
-  color: #efefee;
+  padding: 0;
   font-family: "Arial Narrow", "Archivo Narrow", Arial, sans-serif;
-  font-size: clamp(13px, 1.05vw, 16px);
-  font-stretch: condensed;
-  font-weight: 500;
-  line-height: 2.05;
-  letter-spacing: 0.025em;
-  word-spacing: clamp(0.45em, 1.2vw, 1.15em);
+  font-size: clamp(14px, 1.15vw, 17px);
+  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: -0.025em;
   text-align: justify;
-  text-align-last: left;
-  hyphens: none;
-  -webkit-hyphens: none;
-  word-break: normal;
-  overflow-wrap: normal;
-  text-transform: none;
+  text-transform: lowercase;
 }
 
 
