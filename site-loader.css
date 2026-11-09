@@ -20,6 +20,13 @@
         visibility .5s ease;
 }
 
+/* Estado inicial: oculto mientras se decide si debe aparecer */
+.loading-screen.is-pending {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 .loading-screen.is-hidden {
     opacity: 0;
     visibility: hidden;
@@ -31,7 +38,7 @@
     align-items: center;
     justify-content: center;
 
-    gap: clamp(10px, 1.5vw, 20px);
+    gap: clamp(9px, 1.4vw, 18px);
 
     font-family:
         "Arial Narrow",
@@ -39,7 +46,7 @@
         Arial,
         sans-serif;
 
-    font-size: clamp(52px, 8vw, 88px);
+    font-size: clamp(58px, 8vw, 92px);
     font-weight: 500;
     line-height: 1;
     letter-spacing: -.09em;
