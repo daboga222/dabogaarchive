@@ -6,44 +6,54 @@
 
     if (!screen) return;
 
-    const STORAGE_KEY = "dabogaNavigationStarted";
+    const STORAGE_KEY = "dabogaLoaderNavigation";
+    const SHOW_DELAY = 2000;
     const MINIMUM_DISPLAY_TIME = 2000;
-    const NAVIGATION_THRESHOLD = 1500;
     const FADE_OUT_TIME = 500;
 
-    let startedAt = Date.now();
-    let internalNavigation = false;
+    let navigation = null;
+    let visibleAt = 0;
+    let showTimer = null;
+    let hideTimer = null;
+    let loaderVisible = false;
 
-    // Recuperar el inicio de una navegación interna.
-    try {
-        const storedValue = sessionStorage.getItem(STORAGE_KEY);
+    const getSection = (url) => {
+        const path = url.pathname.toLowerCase();
+        const file = path.split("/").pop();
 
-        if (storedValue) {
-            const timestamp = Number(storedValue);
-
-            if (Number.isFinite(timestamp) && timestamp > 0) {
-                startedAt = timestamp;
-                internalNavigation = true;
-            }
-
-            sessionStorage.removeItem(STORAGE_KEY);
+        if (
+            file === "" ||
+            file === "index.html" ||
+            file === "presave.html"
+        ) {
+            return "home";
         }
-    } catch (error) {
-        // El loader sigue funcionando sin sessionStorage.
-    }
 
-    const elapsed = Date.now() - startedAt;
+        if (file === "beatmaking.html") return "beatmaking";
+        if (file === "daboga.html") return "daboga";
+        if (file === "music.html") return "music";
+        if (file === "archive.html") return "archive";
 
-    // Evitar mostrar el loader en navegaciones demasiado rápidas.
-    if (internalNavigation && elapsed < NAVIGATION_THRESHOLD) {
-        screen.remove();
-        return;
-    }
+        return null;
+    };
 
-    const hideLoadingScreen = () => {
-        const remainingTime = Math.max(
+    const showLoader = () => {
+        if (loaderVisible) return;
+
+        loaderVisible = true;
+        visibleAt = Date.now();
+
+        screen.classList.remove("is-pending", "is-hidden");
+        screen.setAttribute("aria-hidden", "false");
+    };
+
+    const hideLoader = () => {
+        if (!loaderVisible) return;
+
+        const elapsed = Date.now() - visibleAt;
+        const remaining = Math.max(
             0,
-            MINIMUM_DISPLAY_TIME - (Date.now() - startedAt)
+            MINIMUM_DISPLAY_TIME - elapsed
         );
 
         window.setTimeout(() => {
@@ -53,19 +63,47 @@
             window.setTimeout(() => {
                 screen.remove();
             }, FADE_OUT_TIME);
-
-        }, remainingTime);
+        }, remaining);
     };
 
-    if (document.readyState === "complete") {
-        hideLoadingScreen();
-    } else {
-        window.addEventListener("load", hideLoadingScreen, {
-            once: true
-        });
+    // Recuperar información de la navegación anterior.
+    try {
+        const stored = sessionStorage.getItem(STORAGE_KEY);
+
+        if (stored) {
+            navigation = JSON.parse(stored);
+            sessionStorage.removeItem(STORAGE_KEY);
+        }
+    } catch (error) {
+        navigation = null;
     }
 
-    // Registrar navegación entre páginas de la propia web.
+    if (!navigation) {
+        // Primera entrada: mostrar siempre.
+        showLoader();
+        hideLoader();
+    } else if (navigation.type === "main") {
+        // Cambio de directorio principal: mostrar inmediatamente.
+        showLoader();
+        hideLoader();
+    } else {
+        // Mismo directorio: solo mostrar si pasan 2 segundos.
+        screen.classList.add("is-pending");
+
+        const elapsed = Math.max(
+            0,
+            Date.now() - navigation.startedAt
+        );
+
+        const remaining = Math.max(0, SHOW_DELAY - elapsed);
+
+        showTimer = window.setTimeout(() => {
+            showLoader();
+            hideLoader();
+        }, remaining);
+    }
+
+    // Detectar únicamente navegaciones entre páginas internas.
     document.addEventListener("click", (event) => {
         const link = event.target.closest("a[href]");
 
@@ -86,7 +124,7 @@
 
         const href = link.getAttribute("href");
 
-        if (!href || href === "#") return;
+        if (!href || href.startsWith("#")) return;
 
         let destination;
 
@@ -96,22 +134,40 @@
             return;
         }
 
+        if (destination.origin !== window.location.origin) return;
+
+        // Un enlace a la misma página no es navegación.
         if (
-            destination.origin !== window.location.origin ||
             destination.pathname === window.location.pathname &&
-            destination.search === window.location.search &&
-            destination.hash
+            destination.search === window.location.search
         ) {
             return;
         }
 
+        const currentSection = getSection(
+            new URL(window.location.href)
+        );
+
+        const destinationSection = getSection(destination);
+
+        // Si no podemos clasificar una página, no inventamos
+        // que pertenece a otro directorio.
+        const isMainNavigation =
+            currentSection !== null &&
+            destinationSection !== null &&
+            currentSection !== destinationSection;
+
         try {
             sessionStorage.setItem(
                 STORAGE_KEY,
-                String(Date.now())
+                JSON.stringify({
+                    type: isMainNavigation ? "main" : "internal",
+                    startedAt: Date.now()
+                })
             );
         } catch (error) {
-            // La navegación continúa normalmente.
+            // La navegación continúa aunque falle sessionStorage.
         }
     });
+
 })();
