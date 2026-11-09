@@ -13,19 +13,14 @@
 
     let navigation = null;
     let visibleAt = 0;
-    let showTimer = null;
-    let hideTimer = null;
     let loaderVisible = false;
+    let hideScheduled = false;
 
     const getSection = (url) => {
         const path = url.pathname.toLowerCase();
         const file = path.split("/").pop();
 
-        if (
-            file === "" ||
-            file === "index.html" ||
-            file === "presave.html"
-        ) {
+        if (file === "" || file === "index.html") {
             return "home";
         }
 
@@ -48,7 +43,9 @@
     };
 
     const hideLoader = () => {
-        if (!loaderVisible) return;
+        if (!loaderVisible || hideScheduled) return;
+
+        hideScheduled = true;
 
         const elapsed = Date.now() - visibleAt;
         const remaining = Math.max(
@@ -66,7 +63,7 @@
         }, remaining);
     };
 
-    // Recuperar información de la navegación anterior.
+    // Recuperar la navegación anterior.
     try {
         const stored = sessionStorage.getItem(STORAGE_KEY);
 
@@ -78,16 +75,20 @@
         navigation = null;
     }
 
+    // Primera entrada: mostrar siempre.
     if (!navigation) {
-        // Primera entrada: mostrar siempre.
         showLoader();
         hideLoader();
-    } else if (navigation.type === "main") {
-        // Cambio de directorio principal: mostrar inmediatamente.
+    }
+
+    // Cambio de directorio principal: mostrar inmediatamente.
+    else if (navigation.type === "main") {
         showLoader();
         hideLoader();
-    } else {
-        // Mismo directorio: solo mostrar si pasan 2 segundos.
+    }
+
+    // Mismo directorio: mostrar solo si supera los 2 segundos.
+    else {
         screen.classList.add("is-pending");
 
         const elapsed = Math.max(
@@ -95,15 +96,18 @@
             Date.now() - navigation.startedAt
         );
 
-        const remaining = Math.max(0, SHOW_DELAY - elapsed);
+        const remaining = Math.max(
+            0,
+            SHOW_DELAY - elapsed
+        );
 
-        showTimer = window.setTimeout(() => {
+        window.setTimeout(() => {
             showLoader();
             hideLoader();
         }, remaining);
     }
 
-    // Detectar únicamente navegaciones entre páginas internas.
+    // Detectar navegaciones entre páginas.
     document.addEventListener("click", (event) => {
         const link = event.target.closest("a[href]");
 
@@ -129,14 +133,18 @@
         let destination;
 
         try {
-            destination = new URL(href, window.location.href);
+            destination = new URL(
+                href,
+                window.location.href
+            );
         } catch (error) {
             return;
         }
 
-        if (destination.origin !== window.location.origin) return;
+        if (destination.origin !== window.location.origin) {
+            return;
+        }
 
-        // Un enlace a la misma página no es navegación.
         if (
             destination.pathname === window.location.pathname &&
             destination.search === window.location.search
@@ -150,8 +158,6 @@
 
         const destinationSection = getSection(destination);
 
-        // Si no podemos clasificar una página, no inventamos
-        // que pertenece a otro directorio.
         const isMainNavigation =
             currentSection !== null &&
             destinationSection !== null &&
@@ -166,7 +172,7 @@
                 })
             );
         } catch (error) {
-            // La navegación continúa aunque falle sessionStorage.
+            // La navegación continúa normalmente.
         }
     });
 
