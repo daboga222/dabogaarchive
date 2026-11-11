@@ -1,35 +1,36 @@
+
 /* =========================================================
   DABOGA
   FUNDAMENTAL VISUAL SYSTEM
   ========================================================= */
 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html,
 body {
-width: 100%;
-min-height: 100%;
+    width: 100%;
+    min-height: 100%;
 }
 
 html {
-background: #090909;
+    background: #090909;
 }
 
 body {
-background: #090909;
-color: #efefee;
+    background: #090909;
+    color: #efefee;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 
@@ -38,12 +39,12 @@ overflow-x: hidden;
   ========================================================= */
 
 .site {
-position: relative;
+    position: relative;
 
-width: 100%;
-min-height: 100vh;
+    width: 100%;
+    min-height: 100vh;
 
-background: #090909;
+    background: #090909;
 }
 
 
@@ -52,21 +53,21 @@ background: #090909;
   ========================================================= */
 
 .home {
-position: relative;
+    position: relative;
 
-width: 100%;
-min-height: 100vh;
+    width: 100%;
+    min-height: 100vh;
 
-overflow: hidden;
+    overflow: hidden;
 
-background:
-radial-gradient(
-ellipse at 50% 48%,
-rgba(255,255,255,.018) 0%,
-rgba(255,255,255,.006) 35%,
-transparent 72%
-),
-#090909;
+    background:
+        radial-gradient(
+            ellipse at 50% 48%,
+            rgba(255,255,255,.018) 0%,
+            rgba(255,255,255,.006) 35%,
+            transparent 72%
+        ),
+        #090909;
 }
 
 
@@ -75,163 +76,216 @@ transparent 72%
   ========================================================= */
 
 .surface {
-position: absolute;
+    position: absolute;
+    inset: 0;
 
-inset: 0;
+    z-index: 1;
 
-z-index: 1;
+    pointer-events: none;
 
-pointer-events: none;
+    background:
+        radial-gradient(
+            ellipse at 25% 35%,
+            rgba(255,255,255,.014),
+            transparent 42%
+        ),
+        radial-gradient(
+            ellipse at 78% 62%,
+            rgba(255,255,255,.010),
+            transparent 44%
+        );
 
-background:
-radial-gradient(
-ellipse at 25% 35%,
-rgba(255,255,255,.014),
-transparent 42%
-),
-radial-gradient(
-ellipse at 78% 62%,
-rgba(255,255,255,.010),
-transparent 44%
-);
-
-opacity: .9;
+    opacity: .9;
 }
 
 
 /* =========================================================
   GRAIN
-
-  Presente pero mate.
-  Nada de ruido blanco brillante.
-  Nada de movimiento.
   ========================================================= */
 
 .grain {
-position: absolute;
+    position: absolute;
+    inset: -20%;
 
-inset: -20%;
+    z-index: 2;
 
-z-index: 2;
+    pointer-events: none;
 
-pointer-events: none;
+    opacity: .025;
 
-opacity: .025;
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 
-background-image:
-url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-
-background-size: 180px 180px;
+    background-size: 180px 180px;
 }
 
 
 /* =========================================================
-  NAV
+  NAVIGATION
   ========================================================= */
 
 .nav {
-position: absolute;
+    position: absolute;
 
-top: 0;
-left: 0;
+    top: 0;
+    left: 0;
 
-z-index: 20;
+    z-index: 20;
 
-width: 100%;
-height: 58px;
+    width: 100%;
+    height: 58px;
 
-display: flex;
+    display: flex;
 
-align-items: center;
-justify-content: space-between;
+    align-items: center;
+    justify-content: space-between;
 
-padding:
-0
-4vw;
+    padding: 0 4vw;
 
-border-bottom:
-1px solid rgba(255,255,255,.09);
+    border-bottom:
+        1px solid rgba(255,255,255,.09);
 }
 
 
 .nav-links {
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-gap: 32px;
+    gap: 32px;
 
-width: max-content;
+    width: max-content;
 }
 
 
 .nav a {
-position: relative;
+    position: relative;
 
-display: inline-block;
+    display: inline-block;
 
-color: #efefee;
+    color: #efefee;
 
-text-decoration: none;
+    text-decoration: none;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-font-size: 12px;
+    font-size: 12px;
 
-font-weight: 500;
+    font-weight: 500;
 
-line-height: 1;
+    line-height: 1;
 
-letter-spacing: -.035em;
+    letter-spacing: -.035em;
 
-opacity: .88;
+    opacity: .88;
 }
 
 
 .nav a::after {
-content: "";
+    content: "";
 
-position: absolute;
+    position: absolute;
 
-left: 0;
-bottom: -7px;
+    left: 0;
+    bottom: -7px;
 
-width: 0;
-height: 1px;
+    width: 0;
+    height: 1px;
 
-background: #efefee;
+    background: #efefee;
 
-transition:
-width .25s ease;
+    transition: width .25s ease;
 }
 
 
 .nav a:hover::after,
 .nav a.active::after {
-width: 100%;
+    width: 100%;
+}
+
+
+/* =========================================================
+  ARCHIVE
+  UNAVAILABLE NAVIGATION
+  ========================================================= */
+
+.nav a.nav-unavailable {
+    cursor: not-allowed;
+
+    opacity: .65;
+
+    text-decoration: none;
+}
+
+
+/* No hover underline on unavailable links */
+
+.nav a.nav-unavailable::after {
+    display: none;
+}
+
+
+/* Yellow warning tape */
+
+.nav a.nav-unavailable::before {
+    content: "COMING SOON";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    z-index: 10;
+
+    transform: translate(-50%, -50%) rotate(-12deg);
+
+    padding: 4px 7px;
+
+    color: #090909;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            #f2d34f 0,
+            #f2d34f 7px,
+            #090909 7px,
+            #090909 10px
+        );
+
+    font-family: Arial, sans-serif;
+
+    font-size: 7px;
+
+    font-weight: 800;
+
+    letter-spacing: .06em;
+
+    white-space: nowrap;
+
+    pointer-events: none;
 }
 
 
 .nav-mark {
-color: #efefee;
+    color: #efefee;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-font-size: 13px;
+    font-size: 13px;
 
-font-weight: 500;
+    font-weight: 500;
 
-line-height: 1;
+    line-height: 1;
 
-opacity: .88;
+    opacity: .88;
 }
 
 
@@ -240,37 +294,37 @@ opacity: .88;
   ========================================================= */
 
 .content {
-position: relative;
+    position: relative;
 
-z-index: 5;
+    z-index: 5;
 
-width: 100%;
-height: 100vh;
-min-height: 100svh;
+    width: 100%;
+    height: 100vh;
+    min-height: 100svh;
 
-display: grid;
+    display: grid;
 
-/*
-   FUNDAMENTAL AXIS
+    /*
+       FUNDAMENTAL AXIS
 
-   DABOGA                  IMAGE
-      ←────── broken axis ──────→
- */
+       DABOGA                  IMAGE
+          ←────── broken axis ──────→
+    */
 
-grid-template-columns:
-minmax(0, 1.12fr)
-minmax(0, .88fr);
+    grid-template-columns:
+        minmax(0, 1.12fr)
+        minmax(0, .88fr);
 
-grid-template-rows:
-minmax(0, 1fr)
-auto;
+    grid-template-rows:
+        minmax(0, 1fr)
+        auto;
 
-column-gap: 2vw;
+    column-gap: 2vw;
 
-padding:
-42px
-4vw
-58px;
+    padding:
+        42px
+        4vw
+        58px;
 }
 
 
@@ -279,74 +333,70 @@ padding:
   ========================================================= */
 
 .image-link {
-grid-column: 2;
-grid-row: 1;
+    grid-column: 2;
+    grid-row: 1;
 
-align-self: center;
-justify-self: center;
+    align-self: center;
+    justify-self: center;
 
-display: block;
+    display: block;
 
-  /*
-    Escala base de la pieza.
-    Esta proporción se conserva en móvil.
-  */
+    /*
+      Escala base de la pieza.
+      Esta proporción se conserva en móvil.
+    */
 
-width:
-min(
-32vw,
-42vh
-);
+    width:
+        min(
+            32vw,
+            42vh
+        );
 
-max-width: 500px;
+    max-width: 500px;
 
-aspect-ratio: 1 / 1;
+    aspect-ratio: 1 / 1;
 
-overflow: hidden;
+    overflow: hidden;
 
-filter:
-grayscale(1)
-contrast(1.12);
+    filter:
+        grayscale(1)
+        contrast(1.12);
 
-/*
-    LA RUPTURA DEL EJE.
+    /*
+      LA RUPTURA DEL EJE.
+    */
 
-    La foto no está matemáticamente
-    alineada con DABOGA.
-    LA RUPTURA DEL EJE
- */
+    transform:
+        translate(3%, -4%);
 
-transform:
-translate(3%, -4%);
-
-transition:
-transform .45s cubic-bezier(.2,.8,.2,1),
-filter .3s ease;
+    transition:
+        transform .45s cubic-bezier(.2,.8,.2,1),
+        filter .3s ease;
 }
 
 
 .image-link:hover {
-transform:
-translate(3%, -4%)
-scale(1.012);
+    transform:
+        translate(3%, -4%)
+        scale(1.012);
 
-filter:
-grayscale(1)
-contrast(1.15);
+    filter:
+        grayscale(1)
+        contrast(1.15);
 }
 
 
 .image-link img {
-display: block;
+    display: block;
 
-width: 100%;
-height: 100%;
+    width: 100%;
+    height: 100%;
 
-object-fit: cover;
+    object-fit: cover;
 
-user-select: none;
+    user-select: none;
 
--webkit-user-drag: none;
+    -webkit-user-drag: none;
 }
 
 
@@ -355,218 +405,181 @@ user-select: none;
   ========================================================= */
 
 h1 {
-grid-column: 1;
-grid-row: 1;
+    grid-column: 1;
+    grid-row: 1;
 
-align-self: center;
-justify-self: start;
+    align-self: center;
+    justify-self: start;
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-width: max-content;
-max-width: 100%;
+    width: max-content;
+    max-width: 100%;
 
-color: #efefee;
+    color: #efefee;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-  /*
-    Escala fundamental.
-    No se convierte en un elemento diferente
-    en móvil.
-  */
+    /*
+      Escala fundamental.
+    */
 
-font-size:
-clamp(
-115px,
-min(20vw, 28vh),
-345px
-);
+    font-size:
+        clamp(
+            115px,
+            min(20vw, 28vh),
+            345px
+        );
 
-font-weight: 600;
+    font-weight: 600;
 
-line-height: .58;
+    line-height: .58;
 
-letter-spacing: -.105em;
+    letter-spacing: -.105em;
 
-white-space: nowrap;
+    white-space: nowrap;
 
-user-select: none;
+    user-select: none;
 
-  /*
-    Compresión horizontal característica.
-  */
+    /*
+      Compresión horizontal característica.
+    */
 
-transform:
-translateY(2%)
-scaleX(.61)
-scaleY(1.18);
+    transform:
+        translateY(2%)
+        scaleX(.61)
+        scaleY(1.18);
 
-transform-origin:
-left center;
+    transform-origin: left center;
 
-filter:
-contrast(1.06);
+    filter: contrast(1.06);
 }
 
 
 /* =========================================================
-  TEXTURA DENTRO DE DABOGA
-
-   IMPORTANTE:
-   NO hay color sólido en el background.
-
-   El patrón se recorta directamente al texto.
-   Esto elimina el rectángulo negro.
+  TEXTURE WITHIN DABOGA
   ========================================================= */
 
 .wordmark {
-display: inline-block;
+    display: inline-block;
 
-color: transparent;
+    color: transparent;
 
-  -webkit-text-fill-color: transparent;
-
-  /*
-    Base blanca mediante el propio glifo,
-    no mediante un rectángulo.
-  */
-
-  text-shadow:
-    0 0 0 #efefee;
-
-background:
+    -webkit-text-fill-color: transparent;
 
     /*
-      tono cálido / piedra
+      Base blanca mediante el propio glifo.
     */
 
-linear-gradient(
-90deg,
-transparent 0,
-transparent 47px,
-rgba(105,76,45,.11) 47px,
-rgba(105,76,45,.11) 49px,
-transparent 49px,
-transparent 76px
-),
+    text-shadow:
+        0 0 0 #efefee;
 
-    /*
-      tono oliva
-    */
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 47px,
+            rgba(105,76,45,.11) 47px,
+            rgba(105,76,45,.11) 49px,
+            transparent 49px,
+            transparent 76px
+        ),
 
-linear-gradient(
-90deg,
-transparent 0,
-transparent 37px,
-rgba(122,112,75,.13) 37px,
-rgba(122,112,75,.13) 39px,
-transparent 39px,
-transparent 76px
-),
+        linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 37px,
+            rgba(122,112,75,.13) 37px,
+            rgba(122,112,75,.13) 39px,
+            transparent 39px,
+            transparent 76px
+        ),
 
-    /*
-      trama vertical
-    */
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 37px,
+            rgba(35,34,30,.13) 37px,
+            rgba(35,34,30,.13) 43px,
+            transparent 43px,
+            transparent 76px
+        ),
 
-repeating-linear-gradient(
-90deg,
-transparent 0,
-transparent 37px,
-rgba(35,34,30,.13) 37px,
-rgba(35,34,30,.13) 43px,
-transparent 43px,
-transparent 76px
-),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 37px,
+            rgba(35,34,30,.13) 37px,
+            rgba(35,34,30,.13) 43px,
+            transparent 43px,
+            transparent 76px
+        ),
 
-    /*
-      trama horizontal
-    */
+        #efefee;
 
-repeating-linear-gradient(
-0deg,
-transparent 0,
-transparent 37px,
-rgba(35,34,30,.13) 37px,
-rgba(35,34,30,.13) 43px,
-transparent 43px,
-transparent 76px
-    ),
+    background-size:
+        76px 76px,
+        76px 76px,
+        76px 76px,
+        76px 76px;
 
-    #efefee;
-    );
+    background-position:
+        0 0,
+        0 0,
+        0 0,
+        0 0;
 
-background-size:
-76px 76px,
-76px 76px,
-76px 76px,
-    76px 76px,
-    auto;
-    76px 76px;
+    -webkit-background-clip: text;
+    background-clip: text;
 
-background-position:
-0 0,
-0 0,
-0 0,
-    0 0,
-0 0;
+    -webkit-text-fill-color: transparent;
 
--webkit-background-clip: text;
-background-clip: text;
-
-  -webkit-text-fill-color: transparent;
-  overflow: visible;
+    overflow: visible;
 }
 
 
 /* =========================================================
   TRADEMARK
-  GRANDE Y PEGADO AL DABOGA
   ========================================================= */
 
 .reg {
-display: inline-block;
+    display: inline-block;
 
-position: relative;
+    position: relative;
 
-flex-shrink: 0;
+    flex-shrink: 0;
 
-margin-left: .045em;
+    margin-left: .045em;
 
-top: -.015em;
+    top: -.015em;
 
-color: #efefee;
+    color: #efefee;
 
--webkit-text-fill-color: #efefee;
+    -webkit-text-fill-color: #efefee;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-  /*
-    GRANDE.
-    Forma parte visualmente del wordmark.
-  */
+    font-size: .68em;
 
-font-size: .68em;
+    font-weight: 500;
 
-font-weight: 500;
+    line-height: .8;
 
-line-height: .8;
+    letter-spacing: -.06em;
 
-letter-spacing: -.06em;
+    transform: none;
 
-transform: none;
-
-filter: none;
+    filter: none;
 }
 
 
@@ -575,50 +588,50 @@ filter: none;
   ========================================================= */
 
 .bottom-info {
-grid-column: 1 / -1;
-grid-row: 2;
+    grid-column: 1 / -1;
+    grid-row: 2;
 
-width: 100%;
+    width: 100%;
 
-display: grid;
+    display: grid;
 
-grid-template-columns:
-auto
-1fr
-auto;
+    grid-template-columns:
+        auto
+        1fr
+        auto;
 
-align-items: end;
+    align-items: end;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-font-size: 11px;
+    font-size: 11px;
 
-line-height: 1;
+    line-height: 1;
 
-letter-spacing: -.025em;
+    letter-spacing: -.025em;
 
-color: #efefee;
+    color: #efefee;
 
-opacity: .72;
+    opacity: .72;
 }
 
 
 .bottom-info span:nth-child(1) {
-justify-self: start;
+    justify-self: start;
 }
 
 
 .bottom-info span:nth-child(2) {
-justify-self: center;
+    justify-self: center;
 }
 
 
 .bottom-info span:nth-child(3) {
-justify-self: end;
+    justify-self: end;
 }
 
 
@@ -628,35 +641,35 @@ justify-self: end;
 
 @media (max-width: 900px) and (min-width: 701px) {
 
-.content {
-grid-template-columns:
-minmax(0, 1.12fr)
-minmax(0, .88fr);
+    .content {
+        grid-template-columns:
+            minmax(0, 1.12fr)
+            minmax(0, .88fr);
 
-padding:
-42px
-5vw
-58px;
-}
-
-
-.image-link {
-width:
-min(
-32vw,
-42vh
-);
-}
+        padding:
+            42px
+            5vw
+            58px;
+    }
 
 
-h1 {
-font-size:
-clamp(
-100px,
-20vw,
-270px
-);
-}
+    .image-link {
+        width:
+            min(
+                32vw,
+                42vh
+            );
+    }
+
+
+    h1 {
+        font-size:
+            clamp(
+                100px,
+                20vw,
+                270px
+            );
+    }
 }
 
 
@@ -666,235 +679,180 @@ clamp(
 
 @media (max-width: 700px) {
 
-  /*
-   =====================================================
-   MISMA ESTRUCTURA
+    .content {
+        width: 100%;
 
-   NO:
+        height: 100svh;
+        min-height: 100svh;
 
-   FOTO
-   DABOGA
+        display: grid;
 
-   SÍ:
+        grid-template-columns:
+            minmax(0, 1.12fr)
+            minmax(0, .88fr);
 
-   DABOGA              FOTO
+        grid-template-rows:
+            minmax(0, 1fr)
+            auto;
 
-   exactamente el mismo fundamento
-   de la versión de ordenador.
-   =====================================================
-  */
+        column-gap: 2vw;
 
-.content {
-width: 100%;
+        row-gap: 0;
 
-height: 100svh;
-min-height: 100svh;
+        padding:
+            72px
+            6vw
+            64px;
+    }
 
-display: grid;
 
-grid-template-columns:
-minmax(0, 1.12fr)
-minmax(0, .88fr);
+    /* NAV */
 
-grid-template-rows:
-minmax(0, 1fr)
-auto;
+    .nav {
+        height: 58px;
 
-column-gap: 2vw;
+        padding: 0 18px;
+    }
 
-row-gap: 0;
 
-/*
-     Más aire arriba y abajo.
+    .nav-links {
+        width: 100%;
 
-      No altera el diseño.
-      Solo adapta el lienzo 9:16.
-      La estructura sigue siendo horizontal.
-   */
+        gap: 0;
 
-padding:
-72px
-6vw
-64px;
-}
+        justify-content: space-between;
+    }
 
 
-/* =====================================================
-    NAV
-    ===================================================== */
+    .nav a {
+        font-size: 11px;
+    }
 
-.nav {
-height: 58px;
 
-padding:
-0
-18px;
-}
+    .nav-mark {
+        display: none;
+    }
 
 
-.nav-links {
-width: 100%;
+    /* IMAGE */
 
-gap: 0;
+    .image-link {
+        grid-column: 2;
+        grid-row: 1;
 
-justify-content: space-between;
-}
+        align-self: center;
+        justify-self: center;
 
+        width:
+            min(
+                32vw,
+                31vh
+            );
 
-.nav a {
-font-size: 11px;
-}
+        max-width: 500px;
 
+        aspect-ratio: 1 / 1;
 
-.nav-mark {
-display: none;
-}
+        transform:
+            translate(3%, -7%);
 
+        z-index: 6;
+    }
 
-/* =====================================================
-    IMAGE
 
-     Misma proporción que desktop.
-     Solo escalada respecto al ancho móvil.
+    .image-link:hover {
+        transform:
+            translate(3%, -7%)
+            scale(1.012);
+    }
 
-     Conserva la ruptura vertical.
-    ===================================================== */
 
-.image-link {
-grid-column: 2;
-grid-row: 1;
+    /* DABOGA */
 
-align-self: center;
-justify-self: center;
+    h1 {
+        grid-column: 1;
+        grid-row: 1;
 
-width:
-min(
-32vw,
-31vh
-);
+        align-self: center;
+        justify-self: start;
 
-max-width: 500px;
+        width: max-content;
+        max-width: 100%;
 
-aspect-ratio: 1 / 1;
+        margin: 0;
 
-transform:
-translate(
-3%,
--7%
-);
+        font-size:
+            clamp(
+                64px,
+                20vw,
+                150px
+            );
 
-z-index: 6;
-}
+        line-height: .58;
 
+        transform:
+            translateY(2%)
+            scaleX(.61)
+            scaleY(1.18);
 
-.image-link:hover {
-transform:
-translate(
-3%,
--7%
-)
-scale(1.012);
-}
+        transform-origin: left center;
 
+        z-index: 5;
+    }
 
-/* =====================================================
-    DABOGA
 
-     SIGUE HORIZONTAL.
-     SIGUE A LA IZQUIERDA.
+    /* TRADEMARK */
 
-     NO se centra debajo de la foto.
-    ===================================================== */
+    .reg {
+        margin-left: .045em;
 
-h1 {
-grid-column: 1;
-grid-row: 1;
+        top: -.015em;
 
-align-self: center;
-justify-self: start;
+        font-size: .68em;
+    }
 
-width: max-content;
-max-width: 100%;
 
-margin: 0;
+    /* BOTTOM */
 
-font-size:
-clamp(
-64px,
-20vw,
-150px
-);
+    .bottom-info {
+        grid-column: 1 / -1;
+        grid-row: 2;
 
-line-height: .58;
+        width: 100%;
 
-transform:
-translateY(2%)
-scaleX(.61)
-scaleY(1.18);
+        margin-top: 0;
 
-transform-origin:
-left center;
+        display: grid;
 
-z-index: 5;
-}
+        grid-template-columns:
+            auto
+            1fr
+            auto;
 
+        align-items: end;
 
-/* =====================================================
-    TRADEMARK MOBILE
-    ===================================================== */
+        font-size:
+            clamp(
+                9px,
+                2.6vw,
+                12px
+            );
+    }
 
-.reg {
-margin-left: .045em;
 
-top: -.015em;
+    .bottom-info span:nth-child(1) {
+        justify-self: start;
+    }
 
-font-size: .68em;
-}
 
+    .bottom-info span:nth-child(2) {
+        justify-self: center;
+    }
 
-/* =====================================================
-    BOTTOM
-    ===================================================== */
 
-.bottom-info {
-grid-column: 1 / -1;
-grid-row: 2;
-
-width: 100%;
-
-margin-top: 0;
-
-display: grid;
-
-grid-template-columns:
-auto
-1fr
-auto;
-
-align-items: end;
-
-font-size:
-clamp(
-9px,
-2.6vw,
-12px
-);
-}
-
-
-.bottom-info span:nth-child(1) {
-justify-self: start;
-}
-
-
-.bottom-info span:nth-child(2) {
-justify-self: center;
-}
-
-
-.bottom-info span:nth-child(3) {
-justify-self: end;
-}
+    .bottom-info span:nth-child(3) {
+        justify-self: end;
+    }
 }
 
 
@@ -904,74 +862,66 @@ justify-self: end;
 
 @media (max-width: 430px) {
 
-.content {
-padding:
-70px
-6vw
-58px;
-}
+    .content {
+        padding:
+            70px
+            6vw
+            58px;
+    }
 
 
-.nav {
-padding:
-0
-16px;
-}
+    .nav {
+        padding: 0 16px;
+    }
 
 
-.nav a {
-font-size: 10px;
-}
+    .nav a {
+        font-size: 10px;
+    }
 
 
-.image-link {
-width:
-min(
-32vw,
-29vh
-);
+    .image-link {
+        width:
+            min(
+                32vw,
+                29vh
+            );
 
-transform:
-translate(
-3%,
--7%
-);
-}
+        transform:
+            translate(3%, -7%);
+    }
 
 
-.image-link:hover {
-transform:
-translate(
-3%,
--7%
-)
-scale(1.012);
-}
+    .image-link:hover {
+        transform:
+            translate(3%, -7%)
+            scale(1.012);
+    }
 
 
-h1 {
-font-size:
-clamp(
-64px,
-20vw,
-120px
-);
+    h1 {
+        font-size:
+            clamp(
+                64px,
+                20vw,
+                120px
+            );
 
-transform:
-translateY(2%)
-scaleX(.61)
-scaleY(1.18);
-}
-
-
-.reg {
-font-size: .68em;
-}
+        transform:
+            translateY(2%)
+            scaleX(.61)
+            scaleY(1.18);
+    }
 
 
-.bottom-info {
-font-size: 9px;
-}
+    .reg {
+        font-size: .68em;
+    }
+
+
+    .bottom-info {
+        font-size: 9px;
+    }
 }
 
 
@@ -980,78 +930,78 @@ font-size: 9px;
   ========================================================= */
 
 .presave-page {
-min-height: 100vh;
+    min-height: 100vh;
 
-background: #090909;
+    background: #090909;
 
-overflow: hidden;
+    overflow: hidden;
 }
 
 
 .presave {
-position: relative;
+    position: relative;
 
-width: 100%;
-min-height: 100vh;
+    width: 100%;
+    min-height: 100vh;
 
-display: flex;
+    display: flex;
 
-align-items: center;
-justify-content: center;
+    align-items: center;
+    justify-content: center;
 
-background:
-radial-gradient(
-ellipse at center,
-rgba(255,255,255,.012),
-transparent 65%
-),
-#090909;
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(255,255,255,.012),
+            transparent 65%
+        ),
+        #090909;
 }
 
 
 .presave-noise {
-position: absolute;
+    position: absolute;
 
-inset: -20%;
+    inset: -20%;
 
-pointer-events: none;
+    pointer-events: none;
 
-opacity: .025;
+    opacity: .025;
 
-background-image:
-url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.72' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 
-background-size: 180px 180px;
+    background-size: 180px 180px;
 }
 
 
 .presave-message {
-position: relative;
+    position: relative;
 
-z-index: 5;
+    z-index: 5;
 
-max-width: 90vw;
+    max-width: 90vw;
 
-color: #efefee;
+    color: #efefee;
 
-font-family:
-"Arial Narrow",
-"Archivo Narrow",
-Arial,
-sans-serif;
+    font-family:
+        "Arial Narrow",
+        "Archivo Narrow",
+        Arial,
+        sans-serif;
 
-font-size:
-clamp(
-16px,
-2vw,
-28px
-);
+    font-size:
+        clamp(
+            16px,
+            2vw,
+            28px
+        );
 
-font-weight: 400;
+    font-weight: 400;
 
-line-height: 1.4;
+    line-height: 1.4;
 
-letter-spacing: -.045em;
+    letter-spacing: -.045em;
 
-text-align: center;
+    text-align: center;
 }
