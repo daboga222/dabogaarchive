@@ -37,9 +37,15 @@
 
                 <a href="index.html" class="active" aria-current="page">HOME</a>
 
-                <a href="#" aria-disabled="true" tabindex="-1">MUSIC</a>
+                <a href="music.html">MUSIC</a>
 
-                <a href="#" aria-disabled="true" tabindex="-1">ARCHIVE</a>
+                <a
+                    href="#"
+                    class="nav-unavailable"
+                    aria-disabled="true"
+                    tabindex="-1"
+                    data-unavailable="ARCHIVE"
+                >ARCHIVE</a>
 
                 <a href="beatmaking.html">BEATMAKING</a>
 
@@ -90,6 +96,14 @@
         </main>
 
     </div>
+
+    <script>
+        document.querySelectorAll(".nav-unavailable").forEach(link => {
+            link.addEventListener("click", event => {
+                event.preventDefault();
+            });
+        });
+    </script>
 
     <script src="site-loader.js"></script>
 
