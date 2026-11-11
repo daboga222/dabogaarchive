@@ -49,7 +49,7 @@
     <!-- GLOBAL NAVIGATION -->
     <nav class="site-navigation" aria-label="Main navigation">
       <a href="index.html">HOME</a>
-      <a href="#" class="nav-unavailable" aria-disabled="true" data-unavailable="MUSIC">MUSIC</a>
+      <a href="music.html">MUSIC</a>
       <a href="#" class="nav-unavailable" aria-disabled="true" data-unavailable="ARCHIVE">ARCHIVE</a>
       <a href="beatmaking.html" class="current" aria-current="page">BEATMAKING</a>
       <a href="daboga.html">DABOGA</a>
@@ -67,10 +67,10 @@
       <!-- CATEGORY NAVIGATION -->
       <nav class="category-nav" aria-label="Product categories">
         <button class="category-button active" data-category="beats">
-          BEATS <span>20</span>
+          BEATS <span>15</span>
         </button>
         <button class="category-button" data-category="loops">
-          LOOPS <span>12</span>
+          LOOPS <span>09</span>
         </button>
         <button class="category-button" data-category="serum">
           SERUM KIT <span>01</span>
@@ -92,7 +92,7 @@
           </button>
         </div>
 
-        <div id="beatsContainer"></div>
+        <div class="product-list" id="beatsContainer"></div>
       </section>
 
       <!-- LOOPS -->
@@ -212,122 +212,6 @@
     </section>
   </div>
 
-  <!-- PRODUCT MARKUP -->
-  <script>
-    (() => {
-      const beatsContainer = document.getElementById("beatsContainer");
-      const loopsContainer = document.getElementById("loopsContainer");
-
-      const genres = [
-        {
-          number: "01.",
-          title: "CLOUD / AMBIENT / ETHEREAL",
-          start: 1,
-          end: 5
-        },
-        {
-          number: "02.",
-          title: "REGGAETON / AFRO / DANCEHALL",
-          start: 6,
-          end: 10
-        },
-        {
-          number: "03.",
-          title: "TRAP / RAGE",
-          start: 11,
-          end: 15
-        },
-        {
-          number: "04.",
-          title: "OTHER",
-          start: 16,
-          end: 20
-        }
-      ];
-
-      function playerControls() {
-        return `
-          <div class="track-controls">
-            <button class="player-control" data-action="previous" aria-label="Go back">|◀</button>
-            <button class="player-control play-button" data-action="play" aria-label="Play">▶</button>
-            <button class="player-control" data-action="next" aria-label="Skip">▶|</button>
-          </div>
-        `;
-      }
-
-      function beatMarkup(number) {
-        const id = String(number).padStart(2, "0");
-
-        return `
-          <div class="beat-item" data-track="${id}">
-            <div class="track-number">${id}</div>
-            <div class="track-content">
-              <div class="track-title">untitled_${id}</div>
-              <div class="track-producer">PROD. DABOGA</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            ${playerControls()}
-            <div class="track-progress">
-              <div class="progress-fill"></div>
-            </div>
-            <div class="track-actions">
-              <a class="exclusive-button" href="https://www.instagram.com/burberryangel_/">EXCLUSIVE ↗</a>
-              <button class="buy-button" disabled>BUY NOW <span>20€</span></button>
-            </div>
-          </div>
-        `;
-      }
-
-      genres.forEach(genre => {
-        let products = "";
-
-        for (let i = genre.start; i <= genre.end; i++) {
-          products += beatMarkup(i);
-        }
-
-        const section = document.createElement("div");
-        section.className = "genre-section";
-        section.innerHTML = `
-          <div class="genre-heading">
-            <span>${genre.number}</span>
-            <h3>${genre.title}</h3>
-          </div>
-          <div class="product-list">${products}</div>
-        `;
-
-        beatsContainer.appendChild(section);
-      });
-
-      for (let i = 1; i <= 12; i++) {
-        const id = String(i).padStart(2, "0");
-
-        loopsContainer.insertAdjacentHTML("beforeend", `
-          <div class="loop-item" data-track="loop${id}">
-            <div class="track-number">${id}</div>
-            <div class="track-content">
-              <div class="track-title">loop_${id}</div>
-              <div class="track-producer">DABOGA / WAV</div>
-            </div>
-            <div class="track-duration">--:--</div>
-            ${playerControls()}
-            <div class="track-progress">
-              <div class="progress-fill"></div>
-            </div>
-            <div class="track-actions">
-              <button class="buy-button" disabled>BUY NOW <span>10€</span></button>
-            </div>
-          </div>
-        `);
-      }
-
-      document.querySelectorAll(".nav-unavailable").forEach(link => {
-        link.addEventListener("click", event => {
-          event.preventDefault();
-        });
-      });
-    })();
-  </script>
-
   <!-- INTERFACE INTERACTIONS -->
   <script src="beatmaking.js"></script>
 
@@ -336,4 +220,3 @@
 
 </body>
 </html>
-```
